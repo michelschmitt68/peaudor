@@ -36,9 +36,13 @@ const Section = styled.section`
   background-color: ${({ theme }) => theme.colors.lightBackground || "#f9f9f9"};
   width: 100%; /* Assure que le fond couvre toute la largeur */
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+  @media (max-width: 1024px) {
+    flex-direction: column; /* Change la direction pour les petits écrans (mobile/tablette) */
     padding: 3rem 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem; /* Moins de padding sur les écrans très petits */
   }
 `;
 
@@ -47,20 +51,20 @@ const Content = styled.div`
   max-width: 700px; /* Plus large pour le contenu */
   padding: 1.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     text-align: center;
   }
 `;
 
 const Heading = styled.h2`
-  font-size: 2rem; /* Taille du titre un peu plus petite */
+  font-size: 2rem;
   color: ${({ theme }) => theme.colors.primary || "#333"};
   margin-bottom: 3rem;
   font-weight: bold;
   line-height: 1.3;
   text-align: left;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     text-align: center;
   }
 `;
@@ -71,18 +75,19 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.text || "#666"};
   margin-bottom: 1.5rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     text-align: justify;
   }
 `;
 
 const ImageWrapper = styled.div`
   flex: 1;
-  max-width: 700px;
+  max-width: 700px; /* Limite la largeur maximale de l'image à la même largeur que le texte */
   padding: 1.5rem;
+  margin-top: 2rem; /* Espace entre le texte et l'image */
 
-  @media (max-width: 768px) {
-    max-width: 100%;
+  @media (max-width: 1024px) {
+    max-width: 700px; /* Sur tablette, l'image peut prendre 100% de la largeur disponible */
     padding: 0;
   }
 `;
@@ -93,7 +98,8 @@ const Image = styled.img`
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
   object-fit: cover;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    max-width: 100%; /* L'image prend toute la largeur disponible, mais est limitée à la largeur du texte */
     margin-bottom: 1.5rem;
   }
 `;

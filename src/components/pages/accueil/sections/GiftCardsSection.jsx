@@ -74,7 +74,7 @@ const Description = styled.p`
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {
-    display: none; /* Cacher la description sur mobile */
+    display: none; 
   }
 `;
 
@@ -87,6 +87,7 @@ const Button = styled.a`
   text-decoration: none;
   border-radius: 30px;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap; 
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary || "#c00000"};
@@ -94,7 +95,13 @@ const Button = styled.a`
   }
 
   @media (max-width: 768px) {
-    padding: 0.8rem 1.5rem; /* Bouton un peu plus petit sur mobile */
-    font-size: 1rem; /* Taille du texte plus petite sur mobile */
+    padding: 0.8rem 1.5rem; 
+    font-size: 1rem; 
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.6rem; 
+    padding: 0.7rem 1.2rem; 
   }
 `;
+

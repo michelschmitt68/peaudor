@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Separator from "../../reusableUI/Separator";
+import Separator from "../../../reusableUI/Separator";
 
 const Categories = () => {
   const soins = [

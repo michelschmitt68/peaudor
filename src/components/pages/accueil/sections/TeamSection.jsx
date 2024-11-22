@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const TeamSection = () => {
-  // Vous pouvez ajuster ces informations plus tard
   const teamMembers = [
     { name: "Alice Dupont", role: "Esthéticienne", image: "/team/personne1.jpeg" },
     { name: "Pierre Martin", role: "Massothérapeute", image: "/team/personne1.jpeg" },
@@ -30,8 +29,7 @@ const TeamSection = () => {
 export default TeamSection;
 
 const Section = styled.section`
-  padding: 15rem;
-  padding-top: 10rem;
+  padding: 10rem 5rem; /* Padding par défaut sur les grands écrans */
   background: ${({ theme }) => theme.colors.secondaryBackground || "#f0f0f0"}; /* Nouveau fond */
   text-align: center;
   width: 100%;
@@ -39,18 +37,24 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centre le contenu verticalement */
-
+  
   /* Hauteur en desktop */
   min-height: 650px; /* Hauteur minimale */
   height: 100%; /* Garantit que la section prend tout l'espace vertical disponible */
   
-  /* Ajustement en mobile */
-  @media (max-width: 768px) {
+  @media (max-width: 2000px) {
+    padding: 8rem 3rem; /* Réduit le padding sur des écrans plus petits que 2000px */
+  }
+  
+  @media (max-width: 1024px) {
+    padding: 5rem 2rem; /* Réduction du padding sur tablette */
     min-height: auto; /* Hauteur dynamique basée sur le contenu */
-    padding: 3rem 1rem; /* Réduction des marges */
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem; /* Réduction du padding sur mobile */
   }
 `;
-
 
 const Heading = styled.h2`
   font-size: 2rem;
@@ -61,19 +65,24 @@ const Heading = styled.h2`
   line-height: 1.3;
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 3rem;
   }
 `;
 
 const TeamGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Trois colonnes sur grand écran */
   gap: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr; /* Deux colonnes sur tablette */
+    gap: 1.5rem;
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-    gap: 1.5rem; /* Espace entre les éléments */
+    gap: 1rem;
   }
 `;
 
@@ -83,13 +92,17 @@ const MemberCard = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
+  
+  /* Adapter la hauteur en fonction du mode */
+  height: auto; /* Hauteur automatique sur tous les écrans */
 
   &:hover {
     transform: scale(1.05);
   }
 
-  @media (min-width: 768px) {
-    height: 400px; /* Hauteur spécifique en desktop */
+  /* Réduction de la hauteur sur mobile */
+  @media (max-width: 768px) {
+    height: 300px; /* Réduction de la hauteur sur mobile */
   }
 `;
 
@@ -118,4 +131,3 @@ const Role = styled.p`
   font-size: 0.9rem; /* Réduit la taille de la description */
   color: ${({ theme }) => theme.colors.secondary || "#777"};
 `;
-

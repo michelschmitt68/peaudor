@@ -7,8 +7,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
   return (
     <Nav>
       <Container>
@@ -18,7 +16,7 @@ const NavBar = () => {
         </Logo>
 
         {/* Hamburger (visible sur petits écrans uniquement) */}
-        <Hamburger onClick={toggleMenu}>
+        <Hamburger onClick={() => setMenuOpen(prev => !prev)}>
           <GiHamburgerMenu size={24} />
         </Hamburger>
 
@@ -26,23 +24,37 @@ const NavBar = () => {
         {menuOpen && (
           <Menu>
             <MenuItem>
-              <StyledNavLink to="/nos-expertes">Nos expertes</StyledNavLink>
+              <StyledNavLink to="/nos-expertes" onClick={() => setMenuOpen(false)}>
+                Nos expertes
+              </StyledNavLink>
             </MenuItem>
             <MenuItem>
-              <StyledNavLink to="/notre-centre">Notre centre</StyledNavLink>
+              <StyledNavLink to="/notre-centre" onClick={() => setMenuOpen(false)}>
+                Notre centre
+              </StyledNavLink>
             </MenuItem>
             <MenuItem>
-              <StyledNavLink to="/retrouvez-nous">Retrouvez-nous</StyledNavLink>
+              <StyledNavLink to="/retrouvez-nous" onClick={() => setMenuOpen(false)}>
+                Retrouvez-nous
+              </StyledNavLink>
             </MenuItem>
             <MenuItem>
-              <StyledNavLink to="/cheques-cadeaux">Chèques cadeaux</StyledNavLink>
+              <StyledNavLink to="/cheques-cadeaux" onClick={() => setMenuOpen(false)}>
+                Chèques cadeaux
+              </StyledNavLink>
             </MenuItem>
             <MenuItem>
-              <StyledNavLink to="/nos-produits">Nos produits</StyledNavLink>
+              <StyledNavLink to="/nos-produits" onClick={() => setMenuOpen(false)}>
+                Nos produits
+              </StyledNavLink>
             </MenuItem>
             <ButtonSection>
-              <Button to="/rendez-vous">Rendez-vous</Button>
-              <Button to="/mon-compte">Mon compte</Button>
+              <Button to="/rendez-vous" onClick={() => setMenuOpen(false)}>
+                Rendez-vous
+              </Button>
+              <Button to="/mon-compte" onClick={() => setMenuOpen(false)}>
+                Mon compte
+              </Button>
             </ButtonSection>
             <IconSection>
               <Icon href="https://facebook.com" target="_blank" aria-label="Facebook">
@@ -125,7 +137,11 @@ const StyledLogoLink = styled(NavLink)`
 const Hamburger = styled.div`
   cursor: pointer;
 
-  @media (min-width: 768px) {
+  @media (max-width: 1200px) {
+    display: block;
+  }
+
+  @media (min-width: 1201px) {
     display: none;
   }
 `;
@@ -135,7 +151,6 @@ const Menu = styled.div`
   top: 60px;
   left: 0;
   width: 100%;
-  height: 100vh;
   background-color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.spacing.large};
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -143,8 +158,9 @@ const Menu = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.large};
   align-items: center;
+  z-index: 10;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1201px) {
     display: none;
   }
 `;
@@ -152,7 +168,7 @@ const Menu = styled.div`
 const DesktopMenu = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1201px) {
     display: flex;
     gap: ${({ theme }) => theme.spacing.medium};
     align-items: center;
@@ -172,23 +188,20 @@ const MenuItem = styled.div`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.primary}; /* Couleur du texte */
+  color: ${({ theme }) => theme.colors.primary};
   padding: 5px 10px;
   border-radius: 3px;
 
-  /* Supprime l'arrière-plan lorsque le lien est actif */
   &.active {
-    background-color: transparent;  /* Retirer la couleur d'arrière-plan */
-    color: ${({ theme }) => theme.colors.primary}; /* La couleur du texte active reste la même */
+    background-color: transparent;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
-  /* Lorsque l'on survole le lien */
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
     transition: all 0.3s ease-in-out;
   }
 
-  /* Enlever la couleur bleue par défaut des liens */
   &:focus {
     outline: none;
   }
