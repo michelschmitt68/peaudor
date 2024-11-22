@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navBar/NavBar";
+import Footer from "./components/footer/Footer";
 import Accueil from "./components/pages/accueil/AccueilPage";
 import NosExpertes from "./components/pages/nosExpertes/NosExpertesPage";
 import NotreCentre from "./components/pages/notreCentre/notreCentrePage";
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/cheques-cadeaux" element={<ChequesCadeaux />} />
         <Route path="/nos-produits" element={<NosProduits />} />
       </Routes>
+      <Footer />
     </>
   );
 };

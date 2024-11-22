@@ -4,7 +4,7 @@ import PlanityWidget from '../accueil/PlanityWidget'
 const chequeCadeauxPage = () => {
   return (
     <div>
-      <PlanityWidget></PlanityWidget>
+      bb
     </div>
   )
 }
