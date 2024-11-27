@@ -7,7 +7,8 @@ import NosExpertes from "./components/pages/nosExpertes/NosExpertesPage";
 import NotreCentre from "./components/pages/notreCentre/notreCentrePage";
 import RetrouvezNous from "./components/pages/retrouvezNous/retrouvezNousPage";
 import ChequesCadeaux from "./components/pages/chequeCadeaux/chequeCadeauxPage";
-import NosProduits from "./components/pages/nosProduits/nosProduitsPage";
+import NosProduits from './components/pages/nosProduits/NosProduitsPage';
+
 
 const App = () => {
   return (

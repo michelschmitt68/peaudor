@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import Separator from "../../../reusableUI/Separator";
 
 const Categories = () => {
   const soins = [
-    { title: "Soins du visage", img: "/Soins/visage.jpg" },
-    { title: "Massages relaxants", img: "/Soins/massage.jpg" },
-    { title: "Manucure & Pédicure", img: "/Soins/manucure.jpg" },
-    { title: "Épilation", img: "/Soins/epilation.jpg" },
-    { title: "Maquillage", img: "/Soins/maquillage.jpg" },
-    { title: "Soins du visage", img: "/Soins/visage.jpg" },
+    { title: "Bronzage UV", img: "/Soins/visage.jpg", link: "/bronzage-uv", warning: "Attention : L'exposition aux rayons UV peut nuire à la santé." },
+    { title: "Amincissement", img: "/Soins/visage.jpg", link: "/amincissement" },
+    { title: "Beauté du regard", img: "/Soins/visage.jpg", link: "/beaute-du-regard" },
+    { title: "Épilation au fil", img: "/Soins/visage.jpg", link: "/epilation-au-fil" },
+    { title: "Beauté du sourire", img: "/Soins/visage.jpg", link: "/beaute-du-sourire" },
+    { title: "Offre duo", img: "/Soins/visage.jpg", link: "/offre-duo" },
+    { title: "Épilation à la cire + forfait", img: "/Soins/visage.jpg", link: "/epilation-cire-forfait" },
+    { title: "Soins du visage", img: "/Soins/visage.jpg", link: "/soins-du-visage" },
+    { title: "Soins du corps", img: "/Soins/visage.jpg", link: "/soins-du-corps" },
+    { title: "Maquillage", img: "/Soins/visage.jpg", link: "/maquillage" },
+    { title: "Soins des mains", img: "/Soins/visage.jpg", link: "/soins-des-mains" },
+    { title: "Soins des pieds", img: "/Soins/visage.jpg", link: "/soins-des-pieds" },
   ];
 
   return (
@@ -18,11 +23,12 @@ const Categories = () => {
       <Grid>
         {soins.map((soin, index) => (
           <Category key={index}>
-            <CategoryLink href="#">
-              <ImageWrapper>
-                <Image src={soin.img} alt={soin.title} />
-                <CategoryTitle>{soin.title}</CategoryTitle>
-              </ImageWrapper>
+            <CategoryLink href={soin.link}>
+            <ImageWrapper>
+              <Image src={soin.img} alt={soin.title} />
+              <CategoryTitle>{soin.title}</CategoryTitle>
+              {soin.warning && <WarningOverlay>{soin.warning}</WarningOverlay>}
+            </ImageWrapper>
             </CategoryLink>
           </Category>
         ))}
@@ -37,9 +43,8 @@ export default Categories;
 const Section = styled.section`
   padding: 2rem;
   text-align: center;
-  max-width: 1800px; /* Largeur maximale du composant */
-  margin: 0 auto; /* Centrage horizontal */
-  
+  max-width: 1800px;
+  margin: 0 auto;
 `;
 
 const Title = styled.h2`
@@ -54,8 +59,12 @@ const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Une seule colonne pour mobile */
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -86,16 +95,16 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 250px; /* Hauteur augmentée pour desktop */
+  height: 250px;
   object-fit: cover;
   transition: transform 0.3s ease;
 
   @media (min-width: 768px) {
-    height: 350px; /* Plus grand pour la version desktop */
+    height: 350px;
   }
 
   @media (max-width: 768px) {
-    height: 200px; /* Plus petit pour mobile */
+    height: 200px;
   }
 `;
 
@@ -111,3 +120,19 @@ const CategoryTitle = styled.div`
   text-align: center;
   font-weight: bold;
 `;
+
+
+const WarningOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(255, 0, 0, 0.8); /* Rouge transparent */
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1;
+`;
+

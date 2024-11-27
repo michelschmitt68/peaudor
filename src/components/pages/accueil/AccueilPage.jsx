@@ -1,6 +1,6 @@
 import React from 'react'
 import Caroussel from "./sections/Caroussel";
-import Categories from "./sections/Categories";
+import Categories from "./sections/categories/Categories";
 import AboutSection from "./sections/AboutSection";
 import TeamSection from './sections/TeamSection';
 import GiftCardsSection from './sections/GiftCardsSection';
