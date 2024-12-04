@@ -1,0 +1,86 @@
+/* NotreCentrePage CSS */
+
+/* Style spécifique pour cette page */
+.notre-centre-page {
+    background-color: #000; /* Fond noir */
+    color: #fff !important;
+    padding: 70px;
+}
+
+.notre-centre-page .header h1 {
+    font-size: 2.5rem;
+    color: #C0A667; /* Doré élégant */
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+/* Description Section */
+.notre-centre-page .description {
+    margin: 20px auto; /* Centrer horizontalement et ajouter de l'espace */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-family: 'Roboto', sans-serif !important;
+    flex: 1; /* Permet à la section de prendre l'espace restant */
+    max-width: 800px; /* Limiter la largeur à environ la moitié de la page */
+    width: 100%; /* Occuper toute la largeur disponible jusqu'à 600px */
+}
+
+.notre-centre-page .description strong {
+    color: #C0A667; /* Accent doré */
+}
+
+/* Opening Hours Section */
+.notre-centre-page .opening-hours {
+    margin-top: 70px;
+    padding: 20px;
+    border: 2px solid #fff; /* Cadre blanc */
+    border-radius: 12px;
+    background-color: #111; /* Noir légèrement éclairci */
+    width: 100%; /* Par défaut, prendre toute la largeur en mobile */
+    max-width: 400px; /* Limiter la largeur maximale */
+    flex: 0 0 400px; /* S'assurer que l'élément ne dépasse pas 400px sur desktop */
+    display: block; /* Forcer l'élément à se comporter comme un bloc */
+    margin-left: auto; /* Centrer horizontalement */
+    margin-right: auto; /* Centrer horizontalement */
+}
+
+/* Augmenter la taille et l'espacement des horaires */
+.notre-centre-page .opening-hours h2 {
+    font-size: 2rem; /* Augmenter la taille du titre */
+    color: #C0A667; /* Titre doré */
+    margin-bottom: 20px;
+}
+
+.notre-centre-page .opening-hours ul {
+    list-style: none;
+    padding: 0;
+}
+
+.notre-centre-page .opening-hours li {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0; /* Augmenter l'espacement entre les horaires */
+    font-size: 1.2rem; /* Agrandir la taille du texte */
+    border-bottom: 1px solid #333; /* Ligne de séparation */
+    padding-bottom: 8px; /* Un peu plus d'espace entre les horaires */
+}
+
+.notre-centre-page .opening-hours li span {
+    font-weight: bold;
+    color: #C0A667; /* Jours en doré */
+}
+
+/* Responsive - Tablette et Desktop */
+@media (min-width: 768px) {
+    .notre-centre-page .page-container {
+        flex-direction: row; /* Pour aligner les éléments horizontalement */
+        justify-content: space-between; /* Séparer les deux sections */
+    }
+
+
+
+    .notre-centre-page .opening-hours {
+        width: 100%; /* S'assurer que les horaires sont bien ajustés */
+        max-width: 400px; /* Limiter la largeur des horaires */
+    }
+}

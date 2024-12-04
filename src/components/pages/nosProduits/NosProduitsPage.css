@@ -1,98 +1,30 @@
-/* NosProduitsPage.css */
-
-/* Assurez-vous que votre module prend moins de place et s'adapte bien à la page */
-
-/* Style du titre de la page */
-h1 {
-  text-align: center;
-  color: var(--primary-color, #3498db);  /* Utilisation de votre couleur primaire */
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+/* Container global */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le contenu horizontalement */
+  padding: 20px; /* Ajoute un peu de marge autour de la page */
+  background-color: #f9f9f9; /* Optionnel : ajoute une couleur de fond à la page */
 }
 
-/* Conteneur principal de la boutique en ligne */
-#onlineShopContainer {
-  width: 100%;
-  max-width: 1200px;  /* Largeur maximale de la boutique */
-  margin: 0 auto;  /* Centrer horizontalement */
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Ombre douce autour du conteneur */
-  border-radius: 10px;  /* Coins arrondis */
-  box-sizing: border-box;  /* Pour inclure le padding dans la largeur totale */
+/* Conteneur pour la boutique en ligne */
+.shop-container {
+  width: 80%; /* La boutique prendra 80% de la largeur de la page */
+  margin: 20px auto; /* Marge de 20px autour du conteneur et centrée */
+  padding: 50px; /* Padding interne pour ne pas coller les bords */
+  background-color: #fff; /* Optionnel : ajoute une couleur de fond au conteneur */
+  border-radius: 8px; /* Bord arrondi pour le conteneur */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre au conteneur */
 }
 
-/* Modifier les cartes de produits dans le widget */
-.planity-product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Grille responsive */
-  gap: 1.5rem;  /* Espacement entre les cartes */
-  margin-top: 2rem;
+/* button{
+  background-color: red !important;
+} */
+
+.button-module_button-9td2v:not(.business_products-module_showMore-Kdbcy){
+  background-color: #C0A667 !important;
+}
+.button-module_button-9td2v:not(.business_products-module_showMore-Kdbcy):hover {
+  background-color: #d4a373 !important;
 }
 
-/* Style des cartes produits */
-.planity-product-card {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.planity-product-card:hover {
-  transform: translateY(-8px);  /* Effet de survol (élévation) */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Ombre plus marquée au survol */
-}
-
-/* Image des produits */
-.planity-product-card img {
-  width: 100%;
-  height: 200px;  /* Fixe la hauteur de l'image */
-  object-fit: cover;
-  border-bottom: 2px solid #f1f1f1;
-}
-
-/* Détails du produit */
-.planity-product-card .product-details {
-  padding: 1rem;
-}
-
-.planity-product-card .product-details h3 {
-  font-size: 1.6rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.planity-product-card .product-details p {
-  font-size: 1.2rem;
-  color: #e74c3c;  /* Couleur rouge pour le prix */
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-/* Bouton d'ajout au panier */
-.planity-product-card .add-to-cart-btn {
-  background-color: var(--primary-color, #3498db);  /* Utilisation de la couleur primaire */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  font-size: 1rem;
-  width: 100%;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.planity-product-card .add-to-cart-btn:hover {
-  background-color: #2980b9;  /* Couleur au survol */
-}
-
-/* Ajouter un séparateur entre les différentes sections */
-hr {
-  border: 0;
-  border-top: 2px solid #ddd;
-  margin: 2rem 0;
-}

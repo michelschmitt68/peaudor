@@ -64,7 +64,7 @@ const StyledImage = styled.img`
   }
 
   @media (min-width: 1601px) {
-    height: 1000px; /* Hauteur sur ordinateurs de bureau (1000px) */
+    height: 800px; /* Hauteur sur ordinateurs de bureau (1000px) */
     object-position: center; /* Centrer l'image sur desktop */
   }
 `;

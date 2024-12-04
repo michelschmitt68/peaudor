@@ -57,13 +57,12 @@ const Content = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.primary || "#333"};
 
   @media (max-width: 768px) {
-      font-size: 30px; 
+      font-size: 2rem; 
       margin-bottom: 3rem;
   }
 `;

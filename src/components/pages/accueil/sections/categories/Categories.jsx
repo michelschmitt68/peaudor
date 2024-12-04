@@ -8,37 +8,37 @@ const Categories = () => {
       group: "Soins du visage et du corps",
       categories: [
         { title: "Soins du visage", img: "/Soins/visage.jpg", link: "/soins-du-visage" },
-        { title: "Soins du corps", img: "/Soins/corps.jpg", link: "/soins-du-corps" },
-        { title: "Amincissement", img: "/Soins/amincissement.jpg", link: "/amincissement" },
-        { title: "Bronzage UV", img: "/Soins/bronzage.jpg", link: "/bronzage-uv", warning: "Attention : L'exposition aux rayons UV peut nuire à la santé." },
+        { title: "Soins du corps", img: "/Soins/visage.jpg", link: "/soins-du-corps" },
+        { title: "Amincissement", img: "/Soins/visage.jpg", link: "/amincissement" },
+        { title: "Bronzage UV", img: "/Soins/visage.jpg", link: "/bronzage-uv", warning: "Attention : L'exposition aux rayons UV peut nuire à la santé." },
       ],
     },
     {
       group: "Épilation",
       categories: [
-        { title: "Épilation à la cire + forfait", img: "/Soins/cire_forfait.jpg", link: "/epilation-cire-forfait" },
-        { title: "Épilation au fil", img: "/Soins/epilation_fil.jpg", link: "/epilation-au-fil" },
+        { title: "Épilation à la cire + forfait", img: "/Soins/visage.jpg", link: "/epilation-cire-forfait" },
+        { title: "Épilation au fil", img: "/Soins/visage.jpg", link: "/epilation-au-fil" },
       ],
     },
     {
       group: "Beauté spécifique",
       categories: [
-        { title: "Beauté du regard", img: "/Soins/regard.jpg", link: "/beaute-du-regard" },
-        { title: "Beauté du sourire", img: "/Soins/sourire.jpg", link: "/beaute-du-sourire" },
-        { title: "Maquillage", img: "/Soins/maquillage.jpg", link: "/maquillage" },
+        { title: "Beauté du regard", img: "/Soins/visage.jpg", link: "/beaute-du-regard" },
+        { title: "Beauté du sourire", img: "/Soins/visage.jpg", link: "/beaute-du-sourire" },
+        { title: "Maquillage", img: "/Soins/visage.jpg", link: "/maquillage" },
       ],
     },
     {
       group: "Soins des mains et pieds",
       categories: [
-        { title: "Soins des mains", img: "/Soins/mains.jpg", link: "/soins-des-mains" },
-        { title: "Soins des pieds", img: "/Soins/pieds.jpg", link: "/soins-des-pieds" },
+        { title: "Soins des mains", img: "/Soins/visage.jpg", link: "/soins-des-mains" },
+        { title: "Soins des pieds", img: "/Soins/visage.jpg", link: "/soins-des-pieds" },
       ],
     },
     {
       group: "Offres spéciales",
       categories: [
-        { title: "Offre duo", img: "/Soins/duo.jpg", link: "/offre-duo" },
+        { title: "Offre duo", img: "/Soins/visage.jpg", link: "/offre-duo" },
       ],
     },
   ];
