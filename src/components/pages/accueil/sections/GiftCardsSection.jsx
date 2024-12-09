@@ -58,6 +58,7 @@ const Content = styled.div`
 
 const Title = styled.h2`
   font-weight: bold;
+  font-size: 2rem !important;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.primary || "#333"};
 

@@ -20,10 +20,9 @@ export default CategoryGroup;
 // Styled-components
 const GroupTitle = styled.h3`
   font-size: 1.8rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
   color: ${({ theme }) => theme.colors.secondary};
-  text-align: left;
 `;
 
 const Grid = styled.div`

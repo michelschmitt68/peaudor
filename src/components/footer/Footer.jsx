@@ -27,14 +27,11 @@ const Footer = () => {
         <SocialSection>
           <SocialTitle>Suivez-nous</SocialTitle>
           <SocialIcons>
-            <SocialIcon href="#" aria-label="Facebook">
+            <SocialIcon href="https://www.facebook.com/peaudor68320/" aria-label="Facebook">
               <FaFacebook />
             </SocialIcon>
-            <SocialIcon href="#" aria-label="Instagram">
+            <SocialIcon href="https://www.instagram.com/_peaudor/" aria-label="Instagram">
               <FaInstagram />
-            </SocialIcon>
-            <SocialIcon href="#" aria-label="Twitter">
-              <FaTwitter />
             </SocialIcon>
           </SocialIcons>
         </SocialSection>
@@ -146,7 +143,8 @@ const SocialTitle = styled.h4`
 
 const SocialIcons = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
 `;
 
 const SocialIcon = styled.a`

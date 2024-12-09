@@ -6,7 +6,7 @@ export const theme = {
       background: "#fdf6ec",
       lightBackground: "#ededed",
       white: "#ffffff",
-      dark: "#70543e",
+      dark: "#171717",
       hover: "#d4a373",
     },
     fonts: {

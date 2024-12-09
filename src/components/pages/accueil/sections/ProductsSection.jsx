@@ -83,10 +83,9 @@ const Content = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
-  text-transform: uppercase;
 
   @media (max-width: 768px) {
     font-size: 2rem;

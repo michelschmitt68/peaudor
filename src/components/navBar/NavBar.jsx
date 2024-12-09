@@ -57,10 +57,10 @@ const NavBar = () => {
               </Button>
             </ButtonSection>
             <IconSection>
-              <Icon href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
                 <FaFacebook size={20} />
               </Icon>
-              <Icon href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <Icon href="https://www.instagram.com/_peaudor/" target="_blank" aria-label="Instagram">
                 <FaInstagram size={20} />
               </Icon>
             </IconSection>
@@ -106,7 +106,6 @@ export default NavBar;
 
 // Styled-Components avec le thème
 const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.colors.white};
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.spacing.large} ${({ theme }) => theme.spacing.large};
 `;
@@ -139,10 +138,12 @@ const Hamburger = styled.div`
 
   @media (max-width: 1200px) {
     display: block;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   @media (min-width: 1201px) {
     display: none;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -151,7 +152,7 @@ const Menu = styled.div`
   top: 60px;
   left: 0;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.dark};
   padding: ${({ theme }) => theme.spacing.large};
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -209,7 +210,7 @@ const StyledNavLink = styled(NavLink)`
 
 const Button = styled(NavLink)`
   background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.white};
+  color: #f8f8f8;
   text-decoration: none;
   font-family: ${({ theme }) => theme.fonts.main};
   font-size: 0.9rem;
@@ -238,9 +239,10 @@ const IconSection = styled.div`
 `;
 
 const Icon = styled.a`
-  color: ${({ theme }) => theme.colors.dark};
+  color: ${({ theme }) => theme.colors.primary};
   display: flex;
   align-items: center;
+  margin: 5px;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
