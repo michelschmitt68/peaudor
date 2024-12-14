@@ -4,18 +4,18 @@ import CategoryCard from "./CategoryCard";
 
 const Categories = () => {
   const categories = [
-    { title: "Bronzage UV", img: "Bronzage.jpg", link: "/soins/bronzage-uv" },
-    { title: "Épilation au fil", img: "Epilation au fil.jpg", link: "/soins/epilation-au-fil" },
-    { title: "Épilation à la cire", img: "epilations corps a la cire.jpg", link: "/soins/epilation-a-la-cire" },
-    { title: "Beauté du regard", img: "Beaute du regard.jpg", link: "/soins/beaute-du-regard" },
-    { title: "Amincissement", img: "Amincissement.jpg", link: "/soins/Cryolipolyse" },
-    { title: "Soins du visage", img: "Soins visage.jpg", link: "/soins/soins-du-visage" },
-    { title: "Soins du corps", img: "Soins corps.jpg", link: "/soins/soins-du-corps" },
-    { title: "Beauté du sourire", img: "Beauté du sourire.jpg", link: "/soins/beaute-du-sourire" },
-    { title: "Maquillage", img: "Maquillage.jpg", link: "/soins/maquillage" },
-    { title: "Soins des mains", img: "Soins des mains.jpg", link: "/soins/soins-des-mains" },
-    { title: "Soins des pieds", img: "Soins des pieds.jpg", link: "/soins/soins-des-pieds" },
-    { title: "Vernis semi permanent", img: "vernis semi permanent mains pieds.jpg", link: "/soins/verni-semi-permanent" },
+    { title: "Bronzage UV", img: "Bronzage.jpg", link: "/Soins/bronzage-uv" },
+    { title: "Épilation au fil", img: "Epilation au fil.jpg", link: "/Soins/epilation-au-fil" },
+    { title: "Épilation à la cire", img: "epilations corps a la cire.jpg", link: "/Soins/epilation-a-la-cire" },
+    { title: "Beauté du regard", img: "Beaute du regard.jpg", link: "/Soins/beaute-du-regard" },
+    { title: "Amincissement", img: "Amincissement.jpg", link: "/Soins/Cryolipolyse" },
+    { title: "Soins du visage", img: "Soins visage.jpg", link: "/Soins/soins-du-visage" },
+    { title: "Soins du corps", img: "Soins corps.jpg", link: "/Soins/soins-du-corps" },
+    { title: "Beauté du sourire", img: "Beauté du sourire.jpg", link: "/Soins/beaute-du-sourire" },
+    { title: "Maquillage", img: "Maquillage.jpg", link: "/Soins/maquillage" },
+    { title: "Soins des mains", img: "Soins des mains.jpg", link: "/Soins/soins-des-mains" },
+    { title: "Soins des pieds", img: "Soins des pieds.jpg", link: "/Soins/soins-des-pieds" },
+    { title: "Vernis semi permanent", img: "vernis semi permanent mains pieds.jpg", link: "/Soins/verni-semi-permanent" },
   ];
 
   return (
