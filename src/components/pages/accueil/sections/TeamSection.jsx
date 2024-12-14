@@ -30,7 +30,6 @@ export default TeamSection;
 
 const Section = styled.section`
   padding: 10rem 5rem; /* Padding par défaut sur les grands écrans */
-  background: ${({ theme }) => theme.colors.secondaryBackground || "#f0f0f0"}; /* Nouveau fond */
   text-align: center;
   width: 100%;
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.05); /* Effet doux pour le fond */
@@ -87,7 +86,7 @@ const TeamGrid = styled.div`
 `;
 
 const MemberCard = styled.div`
-  background-color: #fff;
+  background-color: #69696957;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -131,3 +130,4 @@ const Role = styled.p`
   font-size: 0.9rem; /* Réduit la taille de la description */
   color: ${({ theme }) => theme.colors.secondary || "#777"};
 `;
+

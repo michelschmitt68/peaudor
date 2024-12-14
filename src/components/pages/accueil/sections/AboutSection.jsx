@@ -16,6 +16,7 @@ const AboutSection = () => {
           Que ce soit pour un soin du visage, un massage relaxant, ou une manucure, nous mettons tout en œuvre
           pour que chaque moment passé dans notre institut soit inoubliable.
         </Description>
+        <Button href="/notre-centre">Retrouvez nous</Button>
       </Content>
       <ImageWrapper>
         <Image src="/about.webp" alt="Intérieur du centre de beauté" />
@@ -23,7 +24,6 @@ const AboutSection = () => {
     </Section>
   );
 };
-
 export default AboutSection;
 
 // Styled-components
@@ -33,7 +33,6 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   padding: 10rem;
-  background-color: ${({ theme }) => theme.colors.lightBackground || "#f9f9f9"};
   width: 100%; /* Assure que le fond couvre toute la largeur */
 
   @media (max-width: 1024px) {
@@ -56,6 +55,23 @@ const Content = styled.div`
   }
 `;
 
+const Button = styled.a`
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #C0A667;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.secondary || "#e3c29b"};
+  }
+`;
+
 const Heading = styled.h2`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.primary || "#333"};
@@ -72,7 +88,7 @@ const Heading = styled.h2`
 const Description = styled.p`
   font-size: 1.2rem;
   line-height: 1.8;
-  color: ${({ theme }) => theme.colors.text || "#666"};
+  color: ${({ theme }) => theme.colors.text || "#d9d9d9"};
   margin-bottom: 1.5rem;
 
   @media (max-width: 1024px) {

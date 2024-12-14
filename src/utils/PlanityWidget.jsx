@@ -15,6 +15,9 @@ const PlanityWidget = ({ containerType }) => {
       key: process.env.REACT_APP_PLANITY_API_KEY,
       primaryColor: process.env.REACT_APP_PRIMARY_COLOR,
       [`${containerType}Container`]: container,
+      options: {
+        servicesNotCollapsed: false,
+    }
     };
 
     // Ajoute les scripts nécessaires

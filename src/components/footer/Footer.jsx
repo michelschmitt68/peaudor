@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -17,10 +17,9 @@ const Footer = () => {
           <LinksTitle>Pages</LinksTitle>
           <LinksList>
             <LinkItem href="#">Accueil</LinkItem>
-            <LinkItem href="#">Nos Soins</LinkItem>
-            <LinkItem href="#">Offres Spéciales</LinkItem>
-            <LinkItem href="#">Contact</LinkItem>
-            <LinkItem href="#">Chèques Cadeaux</LinkItem>
+            <LinkItem href="/nos-produits">Nos Produits</LinkItem>
+            <LinkItem href="/notre-centre">Contact</LinkItem>
+            <LinkItem href="/cheques-cadeaux">Chèques Cadeaux</LinkItem>
           </LinksList>
         </LinksSection>
 
@@ -37,7 +36,7 @@ const Footer = () => {
         </SocialSection>
       </Content>
       <BottomSection>
-        <BottomText>&copy; {new Date().getFullYear()} Institut de Beauté. Tous droits réservés.</BottomText>
+        <BottomText>&copy; {new Date().getFullYear()} Peau d'Or. Tous droits réservés.</BottomText>
       </BottomSection>
     </Section>
   );
@@ -47,10 +46,10 @@ export default Footer;
 
 // Styled-components
 const Section = styled.footer`
-  background-color: ${({ theme }) => theme.colors.background || "#f1f1f1"}; /* Couleur de fond douce, clair */
   color: ${({ theme }) => theme.colors.text || "#333"}; /* Texte foncé pour contraste */
   padding: 4rem 2rem;
   text-align: center;
+  border-top: 2px solid #e3c29b;
 `;
 
 const Content = styled.div`
@@ -85,7 +84,7 @@ const Logo = styled.h3`
 const Description = styled.p`
   font-size: 1rem;
   margin-top: 1rem;
-  color: ${({ theme }) => theme.colors.text || "#6c757d"}; /* Gris clair */
+  color: ${({ theme }) => theme.colors.text || "#d8d8d8"}; /* Gris clair */
 `;
 
 const LinksSection = styled.div`
@@ -114,7 +113,7 @@ const LinksList = styled.ul`
 const LinkItem = styled.a`
   display: block;
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text || "#6c757d"}; /* Gris doux */
+  color: ${({ theme }) => theme.colors.text || "#d8d8d8"}; /* Gris doux */
   text-decoration: none;
   margin-bottom: 0.5rem;
 
@@ -149,7 +148,7 @@ const SocialIcons = styled.div`
 
 const SocialIcon = styled.a`
   font-size: 2rem;
-  color: ${({ theme }) => theme.colors.text || "#6c757d"};
+  color: ${({ theme }) => theme.colors.text || "#d8d8d8"};
   transition: color 0.3s ease;
 
   &:hover {
@@ -164,5 +163,5 @@ const BottomSection = styled.div`
 
 const BottomText = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text || "#6c757d"}; /* Gris foncé */
+  color: ${({ theme }) => theme.colors.dark || "#d8d8d8"}; /* Gris foncé */
 `;

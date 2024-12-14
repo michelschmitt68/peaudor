@@ -31,7 +31,7 @@ const Section = styled.section`
   background-image: url("/chequecadeau.jpg");
 
   @media (max-width: 768px) {
-    height: 300px; /* Hauteur plus petite sur mobile */
+    height: 400px; /* Hauteur plus petite sur mobile */
     padding: 3rem 1.5rem;
     justify-content: center; /* Centre le contenu horizontalement */
     background-size: cover;

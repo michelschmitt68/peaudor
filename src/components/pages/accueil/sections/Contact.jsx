@@ -112,6 +112,7 @@ const Button = styled.button`
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary || "#c00000"};

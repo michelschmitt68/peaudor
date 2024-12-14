@@ -9,6 +9,7 @@
 
 /* Conteneur pour la boutique en ligne */
 .shop-container {
+  z-index: 2;
   width: 80%; /* La boutique prendra 80% de la largeur de la page */
   margin: 20px auto; /* Marge de 20px autour du conteneur et centrée */
   padding: 50px; /* Padding interne pour ne pas coller les bords */
@@ -21,10 +22,19 @@
   background-color: red !important;
 } */
 
-.button-module_button-9td2v:not(.business_products-module_showMore-Kdbcy){
-  background-color: #C0A667 !important;
-}
-.button-module_button-9td2v:not(.business_products-module_showMore-Kdbcy):hover {
-  background-color: #d4a373 !important;
+
+h2{
+  color: #C0A667;
 }
 
+.button-module_button-9td2v.button-module_underlined-H3lcl .button-module_label-PH\+kE{
+  color: black !important;
+}
+
+.button-module_button-9td2v:not(.button-module_linked-yJ4Uk):not(.button-module_underlined-H3lcl):not(.button-module_hasAvailabilities-1a8rw).button-module_isFullWidth-6Z3\+A {
+  background-color: #c0a667 !important;
+}
+
+.button-module_button-9td2v:not(.button-module_linked-yJ4Uk):not(.button-module_underlined-H3lcl):not(.button-module_hasAvailabilities-1a8rw).button-module_large-oun2l {
+  background-color: #c0a667 !important;
+}

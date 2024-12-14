@@ -1,54 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import CategoryGroup from "./CategoryGroup";
+import CategoryCard from "./CategoryCard";
 
 const Categories = () => {
-  const groupedCategories = [
-    {
-      group: "Soins du visage et du corps",
-      categories: [
-        { title: "Soins du visage", img: "/Soins/visage.jpg", link: "/soins-du-visage" },
-        { title: "Soins du corps", img: "/Soins/visage.jpg", link: "/soins-du-corps" },
-        { title: "Amincissement", img: "/Soins/visage.jpg", link: "/amincissement" },
-        { title: "Bronzage UV", img: "/Soins/visage.jpg", link: "/bronzage-uv", warning: "Attention : L'exposition aux rayons UV peut nuire à la santé." },
-      ],
-    },
-    {
-      group: "Épilation",
-      categories: [
-        { title: "Épilation à la cire + forfait", img: "/Soins/visage.jpg", link: "/epilation-cire-forfait" },
-        { title: "Épilation au fil", img: "/Soins/visage.jpg", link: "/epilation-au-fil" },
-      ],
-    },
-    {
-      group: "Beauté spécifique",
-      categories: [
-        { title: "Beauté du regard", img: "/Soins/visage.jpg", link: "/beaute-du-regard" },
-        { title: "Beauté du sourire", img: "/Soins/visage.jpg", link: "/beaute-du-sourire" },
-        { title: "Maquillage", img: "/Soins/visage.jpg", link: "/maquillage" },
-      ],
-    },
-    {
-      group: "Soins des mains et pieds",
-      categories: [
-        { title: "Soins des mains", img: "/Soins/visage.jpg", link: "/soins-des-mains" },
-        { title: "Soins des pieds", img: "/Soins/visage.jpg", link: "/soins-des-pieds" },
-      ],
-    },
-    {
-      group: "Offres spéciales",
-      categories: [
-        { title: "Offre duo", img: "/Soins/visage.jpg", link: "/offre-duo" },
-      ],
-    },
+  const categories = [
+    { title: "Bronzage UV", img: "Bronzage.jpg", link: "/soins/bronzage-uv" },
+    { title: "Épilation au fil", img: "Epilation au fil.jpg", link: "/soins/epilation-au-fil" },
+    { title: "Épilation à la cire", img: "epilations corps a la cire.jpg", link: "/soins/epilation-a-la-cire" },
+    { title: "Beauté du regard", img: "Beaute du regard.jpg", link: "/soins/beaute-du-regard" },
+    { title: "Amincissement", img: "Amincissement.jpg", link: "/soins/Cryolipolyse" },
+    { title: "Soins du visage", img: "Soins visage.jpg", link: "/soins/soins-du-visage" },
+    { title: "Soins du corps", img: "Soins corps.jpg", link: "/soins/soins-du-corps" },
+    { title: "Beauté du sourire", img: "Beauté du sourire.jpg", link: "/soins/beaute-du-sourire" },
+    { title: "Maquillage", img: "Maquillage.jpg", link: "/soins/maquillage" },
+    { title: "Soins des mains", img: "Soins des mains.jpg", link: "/soins/soins-des-mains" },
+    { title: "Soins des pieds", img: "Soins des pieds.jpg", link: "/soins/soins-des-pieds" },
+    { title: "Vernis semi permanent", img: "vernis semi permanent mains pieds.jpg", link: "/soins/verni-semi-permanent" },
   ];
 
   return (
     <Section>
       <Title>Prenez soin de vous, de la tête aux pieds</Title>
-      {groupedCategories.map((group, index) => (
-        <CategoryGroup key={index} group={group} />
-      ))}
+      <Grid>
+        {categories.map((category, index) => (
+          <CategoryCard key={index} category={category} />
+        ))}
+      </Grid>
     </Section>
   );
 };
@@ -69,3 +46,18 @@ const Title = styled.h2`
   margin-top: 1.5rem;
   color: ${({ theme }) => theme.colors.primary};
 `;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+

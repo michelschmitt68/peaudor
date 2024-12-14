@@ -20,7 +20,7 @@ const Carousel = () => {
       <CarouselContainer>
         <Slider {...settings}>
           {/* Liste des images */}
-          {["caroussel1.webp", "caroussel2.webp", "caroussel3.webp", "caroussel4.webp", "caroussel5.webp", "caroussel6.webp"].map((img, index) => (
+          {["caroussel1.webp","caroussel2.webp", "caroussel3.webp", "caroussel4.webp", "caroussel5.webp", "caroussel6.webp"].map((img, index) => (
             <div key={index} style={{ position: "relative" }}>
               <StyledImage
                 src={`/caroussel/${img}`}
@@ -64,7 +64,7 @@ const StyledImage = styled.img`
   }
 
   @media (min-width: 1601px) {
-    height: 800px; /* Hauteur sur ordinateurs de bureau (1000px) */
+    height: 1000px; /* Hauteur sur ordinateurs de bureau (1000px) */
     object-position: center; /* Centrer l'image sur desktop */
   }
 `;

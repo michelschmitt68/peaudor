@@ -12,7 +12,7 @@ const ProductsSection = () => {
             pour prendre soin de votre peau et révéler votre éclat naturel. 
             Qualité et bien-être au cœur de notre engagement.
           </Description>
-          <Button>Voir nos produits</Button>
+          <Button href="nos-produits">Voir nos produits</Button>
         </Content>
       </Overlay>
     </Section>
@@ -24,6 +24,7 @@ export default ProductsSection;
 const Section = styled.section`
   position: relative;
   height: 700px;
+  margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;

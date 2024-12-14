@@ -6,9 +6,25 @@ const CategoryCard = ({ category }) => {
     <Category>
       <CategoryLink href={category.link}>
         <ImageWrapper>
-          <Image src={category.img} alt={category.title} />
+          <picture>
+            {/* Image pour mobile */}
+            <source
+              media="(max-width: 768px)"
+              srcSet={`/soins/photos/mobile/${category.img}`}
+            />
+            {/* Image pour tablette */}
+            <source
+              media="(max-width: 1200px)"
+              srcSet={`/soins/photos/tablet/${category.img}`}
+            />
+            {/* Image par défaut (desktop) */}
+            <Image
+              src={`/soins/photos/desktop/${category.img}`}
+              alt={category.title}
+              loading="lazy" // Lazy loading pour optimisation
+            />
+          </picture>
           <CategoryTitle>{category.title}</CategoryTitle>
-          {category.warning && <WarningOverlay>{category.warning}</WarningOverlay>}
         </ImageWrapper>
       </CategoryLink>
     </Category>
@@ -17,7 +33,7 @@ const CategoryCard = ({ category }) => {
 
 export default CategoryCard;
 
-// Styled-components
+// Styled Components
 const Category = styled.div`
   text-align: center;
 `;
@@ -45,16 +61,17 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 350px;
-  object-fit: cover;
+  height: 450px; /* Augmenter la hauteur des images en mode desktop */
+  object-fit: cover; /* Garantit que l'image couvre bien l'espace sans déformation */
+
   transition: transform 0.3s ease;
 
   @media (max-width: 1201px) {
-    height: 250px;
+    height: 350px; /* Réduction de la hauteur pour les écrans plus petits */
   }
 
   @media (max-width: 768px) {
-    height: 200px;
+    height: 250px; /* Encore plus petite pour les écrans mobiles */
   }
 `;
 
@@ -69,18 +86,4 @@ const CategoryTitle = styled.div`
   font-size: 1.2rem;
   text-align: center;
   font-weight: bold;
-`;
-
-const WarningOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0.5rem;
-  background: rgba(255, 0, 0, 0.8);
-  color: white;
-  font-size: 0.9rem;
-  text-align: center;
-  font-weight: bold;
-  z-index: 1;
 `;

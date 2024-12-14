@@ -34,11 +34,6 @@ const NavBar = () => {
               </StyledNavLink>
             </MenuItem>
             <MenuItem>
-              <StyledNavLink to="/retrouvez-nous" onClick={() => setMenuOpen(false)}>
-                Retrouvez-nous
-              </StyledNavLink>
-            </MenuItem>
-            <MenuItem>
               <StyledNavLink to="/cheques-cadeaux" onClick={() => setMenuOpen(false)}>
                 Chèques cadeaux
               </StyledNavLink>
@@ -76,9 +71,6 @@ const NavBar = () => {
             <StyledNavLink to="/notre-centre">Notre centre</StyledNavLink>
           </MenuItem>
           <MenuItem>
-            <StyledNavLink to="/retrouvez-nous">Retrouvez-nous</StyledNavLink>
-          </MenuItem>
-          <MenuItem>
             <StyledNavLink to="/cheques-cadeaux">Chèques cadeaux</StyledNavLink>
           </MenuItem>
           <MenuItem>
@@ -89,10 +81,10 @@ const NavBar = () => {
             <Button to="/mon-compte">Mon compte</Button>
           </ButtonSection>
           <IconSection>
-            <Icon href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
               <FaFacebook size={20} />
             </Icon>
-            <Icon href="https://instagram.com" target="_blank" aria-label="Instagram">
+            <Icon href="https://www.instagram.com/_peaudor/" target="_blank" aria-label="Instagram">
               <FaInstagram size={20} />
             </Icon>
           </IconSection>
@@ -106,6 +98,7 @@ export default NavBar;
 
 // Styled-Components avec le thème
 const Nav = styled.nav`
+  background-color:  ${({ theme }) => theme.colors.dark};
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.spacing.large} ${({ theme }) => theme.spacing.large};
 `;

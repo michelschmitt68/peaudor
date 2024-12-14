@@ -4,9 +4,9 @@ import Categories from "./sections/categories/Categories";
 import AboutSection from "./sections/AboutSection";
 import TeamSection from './sections/TeamSection';
 import GiftCardsSection from './sections/GiftCardsSection';
-import Contact from "./sections/Contact";
 import Separator from '../../reusableUI/Separator';
 import ProductsSection from './sections/ProductsSection';
+import NewsletterSection from './sections/NewsletterSection';
 
 
 const AccueilPage = () => {
@@ -16,11 +16,11 @@ const AccueilPage = () => {
       <Separator />
       <Categories />
       <Separator />
-      <AboutSection />
       <ProductsSection />
-      <TeamSection />
+      <AboutSection />
       <GiftCardsSection />
-      <Contact />
+      <TeamSection />
+      <NewsletterSection />
      </div> 
   )
 }
