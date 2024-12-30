@@ -1,95 +1,187 @@
+/* .notre-centre-page {
+   background: linear-gradient(to bottom, #3b3b3b, #000000); 
+  color: #C0A667;
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 100px;
+  background: url('../../../../public/test.svg');
+  background-size: cover;
+} */
+
 .notre-centre-page {
-    background-color: #f9f9f9; /* Noir doux */
-    color: #000000;
-    padding: 50px;
+  position: relative; /* Nécessaire pour positionner le ::before */
+  color: #C0A667;
+  padding: 50px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 100px;
+  background: url('../../../../public/test.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.notre-centre-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Couche noire semi-transparente */
+  background: linear-gradient(to bottom, rgb(255 255 255 / 12%), rgb(0 0 0 /70%));
+  z-index: 1; /* Place le ::before derrière le contenu texte */
+}
+
+.notre-centre-page * {
+  position: relative; /* Pour que le contenu reste visible par-dessus le ::before */
+  z-index: 2; /* Assure que le contenu reste au-dessus de la couche sombre */
+}
+
+
+.header{
+  text-align: center;
+}
+
+.notre-centre-page .header h1 {
+  font-size: 2.5rem;
+  color: #C0A667;
+  margin-bottom: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-bottom: 2px solid #C0A667; /* Ligne dorée */
+  display: inline-block; /* Conserver la largeur de l'élément */
+  padding-bottom: 10px;
+  margin: 0 auto; /* Centrer l'élément horizontalement */
+}
+
+.notre-centre-page .description {
+  margin: 75px auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  color: #e6e6e6;
+}
+
+.notre-centre-page .description p {
+  margin-bottom: 20px;
+}
+
+.notre-centre-page .description strong {
+  color: #C0A667;
+}
+
+.notre-centre-page .opening-hours {
+  margin-top: 50px;
+  padding: 20px;
+  border: 1px solid #C0A667;
+  border-radius: 10px;
+  background-color: rgb(40 40 40 / 60%);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e6e6e6;
+}
+
+.notre-centre-page .opening-hours h2 {
+  font-size: 1.8rem;
+  color: #C0A667;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.notre-centre-page .opening-hours ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notre-centre-page .opening-hours li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.notre-centre-page .opening-hours li span {
+  font-weight: bold;
+  color: #C0A667;
+}
+
+.opening-hours .rdv {
+  font-size: 0.9rem;
+  color: #C0A667;
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.notre-centre-page .location {
+  margin-top: 50px;
+  margin-bottom: 150px;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.notre-centre-page .location h2 {
+  font-size: 1.8rem;
+  color: #C0A667;
+  margin-bottom: 10px;
+}
+
+.notre-centre-page .location p {
+  font-size: 1.2rem;
+  color: #e6e6e6;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .notre-centre-page {
+      padding: 50px 20px;
   }
-  
-  .notre-centre-page .header h1 {
-    font-size: 2.5rem;
-    color: #C0A667; /* Doré élégant */
-    margin-bottom: 50px;
-    text-align: center;
-  }
-  
-  /* Description Section */
-  .notre-centre-page .description {
-    margin: 30px auto;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    font-family: 'Roboto', sans-serif;
-    max-width: 800px;
-  }
-  
-  .notre-centre-page .description p {
-    margin-bottom: 20px; /* Espacement entre les paragraphes */
-  }
-  
-  .notre-centre-page .description strong {
-    color: #C0A667;
-  }
-  
-  /* Opening Hours Section */
+
+  .notre-centre-page .description,
   .notre-centre-page .opening-hours {
-    margin-top: 50px;
-    padding: 20px;
-    border: 1px solid #C0A667;
-    border-radius: 10px;
-    background-color: #1a1a1a;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+      padding: 20px;
   }
-  
-  .notre-centre-page .opening-hours h2 {
-    font-size: 1.8rem;
-    color: #C0A667;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .notre-centre-page .opening-hours ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .notre-centre-page .opening-hours li {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    font-size: 1.2rem;
-    border-bottom: 1px solid #444;
-    padding-bottom: 8px;
-  }
-  
-  .notre-centre-page .opening-hours li span {
-    font-weight: bold;
-    color: #C0A667;
-  }
-  
-  /* Location Section */
-  .notre-centre-page .location {
-    margin-top: 50px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .notre-centre-page .location h2 {
-    font-size: 1.8rem;
-    color: #C0A667;
-    margin-bottom: 10px;
-  }
-  
-  .notre-centre-page .location p {
-    font-size: 1.2rem;
-    color: #ffffff;
-    line-height: 1.6;
-  }
-  
-  /* Responsive */
-  @media (min-width: 768px) {
-    .notre-centre-page .page-container {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-  
+}
+
+.location-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.location-icon-img {
+  font-size: 20px; /* Taille de l'icône de l'adresse */
+  color: #C0A667; /* Couleur dorée */
+  margin-right: 10px; /* Espacement entre l'icône et le texte */
+}
+
+.address {
+  font-size: 1.2rem;
+  color: #C0A667; /* Couleur dorée */
+  margin: 0;
+}
+
+/* Pour l'icône du téléphone */
+.phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.phone-icon-img {
+  font-size: 20px; /* Taille de l'icône du téléphone */
+  color: #C0A667; /* Couleur dorée */
+  margin-right: 10px; /* Espacement entre l'icône et le numéro */
+}
+
+.phone {
+  font-size: 1.2rem;
+  color: #C0A667; /* Couleur dorée */
+  margin: 0;
+}

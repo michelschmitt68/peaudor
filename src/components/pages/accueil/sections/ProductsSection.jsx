@@ -1,9 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
 const ProductsSection = () => {
   return (
-    <Section>
+    <MotionSection
+      initial={{ opacity: 0, y: 50 }} // Partie invisible et en bas
+      whileInView={{ opacity: 1, y: 0 }} // Apparaît en montant
+      transition={{
+        duration: 1, // Durée de l'animation
+        ease: "easeOut",
+      }}
+      viewport={{
+        once: true, // L'animation ne se rejoue pas
+        margin: "-20%", // Détecte avant d'entrer complètement
+      }}
+    >
       <Overlay>
         <Content>
           <Title>Découvrez nos produits exclusifs</Title>
@@ -15,21 +27,31 @@ const ProductsSection = () => {
           <Button href="nos-produits">Voir nos produits</Button>
         </Content>
       </Overlay>
-    </Section>
+    </MotionSection>
   );
 };
 
 export default ProductsSection;
 
-const Section = styled.section`
+// Animation en boucle pour le zoom
+const zoomAnimation = keyframes`
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Zoom intermédiaire */
+  }
+`;
+
+const MotionSection = styled(motion.section)`
   position: relative;
-  height: 700px;
+  height: 800px;
   margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Cache les parties qui dépassent */
-  
+  overflow: hidden;
+
   &::before {
     content: "";
     position: absolute;
@@ -39,21 +61,17 @@ const Section = styled.section`
     height: 100%;
     background-image: url("/product.jpg"); /* Remplacez par l'image réelle */
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     z-index: 1;
-    transition: transform 2s ease; /* Augmentation de la durée de la transition */
-  }
-
-  &:hover::before {
-    transform: scale(1.02) rotate(0.1deg); /* Zoom plus léger et petite rotation */
+    animation: ${zoomAnimation} 8s infinite ease-in-out; /* Animation en boucle */
   }
 
   @media (max-width: 768px) {
     height: 400px;
 
     &::before {
-      transform: none; /* Pas d'effet sur mobile */
+      animation: none; /* Pas d'effet en boucle sur mobile */
     }
   }
 `;
@@ -76,7 +94,9 @@ const Content = styled.div`
   text-align: center;
   padding: 2rem;
   max-width: 700px;
-  z-index: 3; /* Positionne au-dessus de l'overlay */
+  z-index: 3;
+  background-color: #6b696957;
+  border-radius: 10px;
 
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -113,7 +133,7 @@ const Button = styled.a`
   text-decoration: none;
   border-radius: 30px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  cursor: pointer; /* Ajoute le curseur pointer */
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary || "#c00000"};

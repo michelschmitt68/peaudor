@@ -47,7 +47,7 @@ const Section = styled.section`
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-    opacity: 0.2;
+    opacity: 1;
   }
   & > * {
     position: relative;

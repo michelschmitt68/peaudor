@@ -11,7 +11,7 @@ const BeauteDuRegard = () => {
     <PageContainer>
      <Container>       
          <Header>
-           <Title>Bronzage UV</Title>
+           <Title>Beauté du regard</Title>
            <VideoContainer>
              <ReactPlayer
                url="/Soins/videos/Épilation au fil.mp4"
@@ -126,20 +126,22 @@ const PageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #313131;
+    background-color: #141414;
 `;
 
 const Container = styled.div`
     width: 75%;
     padding: 5rem;
-    background-color: ${({ theme }) => theme.colors.white || "#1a73e8"};
+    background: radial-gradient(circle at 50% 30%, /* Centre déplacé */
+              rgba(227, 194, 155, 0.1) 0%, 
+              rgba(33, 38, 44, 1) 80%);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 80px;
     margin-top: 80px;
     border: solid 2px ${({ theme }) => theme.colors.secondary || "#1a73e8"};
     @media (max-width: 768px) {
-    padding: 3.5rem;
+    padding: 2.5rem;
   }
 `;
 
@@ -195,8 +197,8 @@ const Separator = styled.hr`
 `;
 
 const Text = styled.div`
-  font-size: 1rem;
-  color: #494949;
+  font-size: 1.1rem;
+  color: #dbdbdb;
   margin-bottom: 2rem;
   ul {
     margin-top: 0.5rem;

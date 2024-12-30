@@ -139,20 +139,41 @@ const PageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #313131;
+    position: relative; /* Nécessaire pour positionner le ::before */
+    z-index: 1;
+
+    /* background: linear-gradient(to bottom, #3b3b3b, #000000); */
+    background: url(/test.svg);
+    background-size: cover;
+    background-position: center;
+
+    /* Pseudo-élément ::before */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Couche noire semi-transparente */
+        z-index: -1; /* Place derrière le contenu du conteneur */
+    }
 `;
+
 
 const Container = styled.div`
     width: 75%;
     padding: 5rem;
-    background-color: ${({ theme }) => theme.colors.white || "#1a73e8"};
+    background: radial-gradient(circle at 50% 30%,
+              rgba(227, 194, 155, 0.1) 0%,
+              rgba(33, 38, 44, 1) 80%);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 80px;
     margin-top: 80px;
-    border: solid 2px ${({ theme }) => theme.colors.secondary || "#1a73e8"};
+    border: solid 2px ${({ theme }) => theme.colors.white || "#1a73e8"};
     @media (max-width: 768px) {
-    padding: 3.5rem;
+    padding: 2.5rem;
   }
 `;
 
@@ -190,7 +211,7 @@ const InteractiveSection = styled.div`
 
 const InteractiveTitle = styled.h2`
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.primary || "#1a73e8"};
+  color: ${({ theme }) => theme.colors.white || "#1a73e8"};
   cursor: pointer;
   margin-bottom: 1rem;
   &:hover {
@@ -203,13 +224,13 @@ const InteractiveTitle = styled.h2`
 
 const Separator = styled.hr`
     border: none;
-    border-top: 1px solid #c0a667;
+    border-top: 1px solid #ffffff;
     width: 80%;
 `;
 
 const Text = styled.div`
-  font-size: 1rem;
-  color: #494949;
+  font-size: 1.1rem;
+  color: #dbdbdb;
   margin-bottom: 2rem;
   ul {
     margin-top: 0.5rem;

@@ -1,32 +1,88 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import CategoryCard from "./CategoryCard";
 
 const Categories = () => {
+  const title = "Prenez soin de vous, de la tête aux pieds";
+
   const categories = [
-    { title: "Bronzage UV", img: "Bronzage.jpg", link: "/Soins/bronzage-uv" },
-    { title: "Épilation au fil", img: "Epilation au fil.jpg", link: "/Soins/epilation-au-fil" },
-    { title: "Épilation à la cire", img: "epilations corps a la cire.jpg", link: "/Soins/epilation-a-la-cire" },
-    { title: "Beauté du regard", img: "Beaute du regard.jpg", link: "/Soins/beaute-du-regard" },
-    { title: "Amincissement", img: "Amincissement.jpg", link: "/Soins/Cryolipolyse" },
-    { title: "Soins du visage", img: "Soins visage.jpg", link: "/Soins/soins-du-visage" },
-    { title: "Soins du corps", img: "Soins corps.jpg", link: "/Soins/soins-du-corps" },
-    { title: "Beauté du sourire", img: "Beauté du sourire.jpg", link: "/Soins/beaute-du-sourire" },
-    { title: "Maquillage", img: "Maquillage.jpg", link: "/Soins/maquillage" },
-    { title: "Soins des mains", img: "Soins des mains.jpg", link: "/Soins/soins-des-mains" },
-    { title: "Soins des pieds", img: "Soins des pieds.jpg", link: "/Soins/soins-des-pieds" },
-    { title: "Vernis semi permanent", img: "vernis semi permanent mains pieds.jpg", link: "/Soins/verni-semi-permanent" },
+    { title: "Bronzage UV", img: "Bronzage.jpg", link: "/soins/bronzage-uv" },
+    { title: "Épilation au fil", img: "Epilation au fil.jpg", link: "/soins/epilation-au-fil" },
+    { title: "Épilation à la cire", img: "epilations corps a la cire.jpg", link: "/soins/epilation-a-la-cire" },
+    { title: "Beauté du regard", img: "Beaute du regard.jpg", link: "/soins/beaute-du-regard" },
+    { title: "Amincissement", img: "Amincissement.jpg", link: "/soins/Cryolipolyse" },
+    { title: "Soins du visage", img: "Soins visage.jpg", link: "/soins/soins-du-visage" },
+    { title: "Soins du corps", img: "Soins corps.jpg", link: "/soins/soins-du-corps" },
+    { title: "Beauté du sourire", img: "Beauté du sourire.jpg", link: "/soins/beaute-du-sourire" },
+    { title: "Maquillage", img: "Maquillage.jpg", link: "/soins/maquillage" },
+    { title: "Soins des mains", img: "Soins des mains.jpg", link: "/soins/soins-des-mains" },
+    { title: "Soins des pieds", img: "Soins des pieds.jpg", link: "/soins/soins-des-pieds" },
+    { title: "Vernis semi permanent", img: "vernis semi permanent mains pieds.jpg", link: "/soins/verni-semi-permanent" },
   ];
 
   return (
-    <Section>
-      <Title>Prenez soin de vous, de la tête aux pieds</Title>
-      <Grid>
-        {categories.map((category, index) => (
-          <CategoryCard key={index} category={category} />
-        ))}
-      </Grid>
-    </Section>
+    <>
+      <CenteredSection>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+          viewport={{
+            once: true,
+            margin: "-30% 0px",
+          }}
+        >
+          <Title>
+            {title.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: index * 0.07,
+                  duration: 0.07,
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </Title>
+        </motion.div>
+      </CenteredSection>
+
+      <Section>
+        <Grid>
+          {categories.map((category, index) => (
+            <MotionCategory
+              key={index}
+              initial={{
+                opacity: 0,
+                x: index % 2 === 0 ? -50 : 50, // Mode tablette (1er à gauche, 2ème à droite)
+                y: 50, // Toutes arrivent par le bas
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+                y: 0,
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeOut",
+              }}
+              viewport={{
+                once: true,
+              }}
+            >
+              <CategoryCard category={category} index={index} />
+            </MotionCategory>
+          ))}
+        </Grid>
+      </Section>
+    </>
   );
 };
 
@@ -40,13 +96,6 @@ const Section = styled.section`
   margin: 0 auto;
 `;
 
-const Title = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 3.5rem;
-  margin-top: 1.5rem;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,7 +106,43 @@ const Grid = styled.div`
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
   }
 `;
 
+const MotionCategory = styled(motion.div)`
+  display: block;
+`;
+
+const CenteredSection = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 50px 0;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  color: ${({ theme }) => theme.colors.primary || "#333"};
+  line-height: 1.2;
+  
+  span {
+    display: inline-block;
+  &:hover {
+      color: ${({ theme }) => theme.colors.secondary || "#C0A667"};
+    }
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 1.2rem;
+  }
+`;

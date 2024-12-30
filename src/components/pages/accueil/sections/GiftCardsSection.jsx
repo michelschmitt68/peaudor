@@ -1,10 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const GiftCardsSection = () => {
   return (
     <Section>
-      <Content>
+      <Content
+        initial={{ x: 0 }} // Position initiale
+        whileInView={{
+          x: ["0", "10px", "-10px", "10px", "-10px", "0"], // Vibrations sur l'axe X
+        }}
+        transition={{
+          duration: 0.3, // Durée de la vibration
+          ease: "easeOut",
+          repeat: 3, // Pas de répétition (1 seule fois)
+        }}
+        viewport={{
+          once: true, // L'animation se déclenche une seule fois
+          margin: "-20%", // Réduit le seuil pour mieux détecter la vue en desktop
+        }}
+      >
         <Title>Offrez un moment de bien-être</Title>
         <Description>
           Nos chèques cadeaux sont le cadeau parfait pour vos proches. Offrez-leur une
@@ -29,17 +44,18 @@ const Section = styled.section`
   height: 700px; /* Hauteur modérée pour ne pas prendre trop de place */
   width: 100%; /* Prend toute la largeur de la page */
   background-image: url("/chequecadeau.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  perspective: 1500px; /* Crée la profondeur pour l'effet 3D */
 
   @media (max-width: 768px) {
     height: 400px; /* Hauteur plus petite sur mobile */
     padding: 3rem 1.5rem;
     justify-content: center; /* Centre le contenu horizontalement */
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   background-color: rgb(0 0 0 / 43%);
   padding: 3rem;
   border-radius: 8px;
@@ -47,7 +63,8 @@ const Content = styled.div`
   text-align: left;
   z-index: 2;
   margin-right: 5%; /* Décalage vers la droite */
-  
+  transform-style: preserve-3d; /* Nécessaire pour la rotation en 3D */
+
   /* Responsivité pour mobile */
   @media (max-width: 768px) {
     max-width: 90%; /* Réduit la largeur du contenu sur mobile */
@@ -63,8 +80,8 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.colors.primary || "#333"};
 
   @media (max-width: 768px) {
-      font-size: 2rem; 
-      margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 3rem;
   }
 `;
 
@@ -104,4 +121,3 @@ const Button = styled.a`
     padding: 0.7rem 1.2rem; 
   }
 `;
-

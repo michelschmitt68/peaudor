@@ -1,5 +1,7 @@
 import React from 'react';
 import './NotreCentrePage.css';
+import { FaPhoneAlt } from 'react-icons/fa';
+import { AiFillHome } from 'react-icons/ai';
 
 const NotreCentrePage = () => {
   return (
@@ -35,7 +37,6 @@ const NotreCentrePage = () => {
           <strong>Parking gratuit, facile d'accès.</strong>
         </p>
       </section>
-
       <section className="opening-hours">
         <h2>Horaires d'ouverture</h2>
         <ul>
@@ -44,14 +45,20 @@ const NotreCentrePage = () => {
           <li><span>Mercredi:</span> 09:00 - 19:00</li>
           <li><span>Jeudi:</span> 10:00 - 20:00</li>
           <li><span>Vendredi:</span> 08:00 - 20:00</li>
-          <li><span>Samedi:</span> 09:00 - 14:00</li>
-          <li><span>Dimanche:</span> 10:00 - 12:00</li>
+          <li><span>Samedi: <span className="rdv">(sur RDV)</span></span> 09:00 - 14:00 </li>
+          <li><span>Dimanche: <span className="rdv">(sur RDV)</span></span> 10:00 - 12:00 </li>
         </ul>
       </section>
-
       <section className="location">
         <h2>Nous retrouver</h2>
-        <p>Adresse : 15 Grand Rue, 68320 Jebsheim</p>
+        <div className="location-icon">
+          <AiFillHome className="location-icon-img" />
+          <p className="address">15 Grand Rue, 68320 Jebsheim</p>
+        </div>
+        <div className="phone-icon">
+          <FaPhoneAlt className="phone-icon-img" />
+          <p className="phone">09 81 34 02 67</p>
+        </div>
       </section>
     </div>
   );

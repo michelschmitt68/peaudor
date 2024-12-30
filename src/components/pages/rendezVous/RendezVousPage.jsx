@@ -5,7 +5,10 @@ import './RendezVousPage.css';
 
 const RendezVousPage = () => {
   return (
-    <PlanityWidget containerType="appointment" />
+    <div className="page-container">
+      <PlanityWidget containerType="appointment" />
+    </div>
+    
   );
 };
 

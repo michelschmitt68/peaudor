@@ -1,244 +1,126 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import * as S from "./Navbar.styles";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const categories = [
+    { title: "Bronzage UV", link: "/soins/bronzage-uv" },
+    { title: "Épilation au fil", link: "/soins/epilation-au-fil" },
+    { title: "Épilation à la cire", link: "/soins/epilation-a-la-cire" },
+    { title: "Beauté du regard", link: "/soins/beaute-du-regard" },
+    { title: "Amincissement", link: "/soins/Cryolipolyse" },
+    { title: "Soins du visage", link: "/soins/soins-du-visage" },
+    { title: "Soins du corps", link: "/soins/soins-du-corps" },
+    { title: "Beauté du sourire", link: "/soins/beaute-du-sourire" },
+    { title: "Maquillage", link: "/soins/maquillage" },
+    { title: "Soins des mains", link: "/soins/soins-des-mains" },
+    { title: "Soins des pieds", link: "/soins/soins-des-pieds" },
+    { title: "Vernis semi permanent", link: "/soins/verni-semi-permanent" },
+  ];
+
   return (
-    <Nav>
-      <Container>
-        {/* Logo */}
-        <Logo>
-          <StyledLogoLink to="/">Peau d'or</StyledLogoLink>
-        </Logo>
+    <S.Nav>
+      <S.Container>
+        <S.Logo>
+          <S.StyledLogoLink as={NavLink} to="/">Peau d'or</S.StyledLogoLink>
+        </S.Logo>
 
-        {/* Hamburger (visible sur petits écrans uniquement) */}
-        <Hamburger onClick={() => setMenuOpen(prev => !prev)}>
+        <S.Hamburger onClick={() => setMenuOpen((prev) => !prev)}>
           <GiHamburgerMenu size={24} />
-        </Hamburger>
+        </S.Hamburger>
 
-        {/* Menu mobile (visible uniquement quand le menu est ouvert) */}
         {menuOpen && (
-          <Menu>
-            <MenuItem>
-              <StyledNavLink to="/nos-expertes" onClick={() => setMenuOpen(false)}>
-                Nos expertes
-              </StyledNavLink>
-            </MenuItem>
-            <MenuItem>
-              <StyledNavLink to="/notre-centre" onClick={() => setMenuOpen(false)}>
+          <S.Menu>
+            <S.MenuItem>
+              <S.StyledNavLinkStyled to="/nos-soins" onClick={() => setMenuOpen(false)}>
+                Nos soins
+              </S.StyledNavLinkStyled>
+              <S.SubMenu>
+                {categories.map((category, index) => (
+                  <S.StyledNavLinkStyled
+                    key={index}
+                    to={category.link}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {category.title}
+                  </S.StyledNavLinkStyled>
+                ))}
+              </S.SubMenu>
+            </S.MenuItem>
+            <S.MenuItem>
+              <S.StyledNavLinkStyled to="/notre-centre" onClick={() => setMenuOpen(false)}>
                 Notre centre
-              </StyledNavLink>
-            </MenuItem>
-            <MenuItem>
-              <StyledNavLink to="/cheques-cadeaux" onClick={() => setMenuOpen(false)}>
+              </S.StyledNavLinkStyled>
+            </S.MenuItem>
+            <S.MenuItem>
+              <S.StyledNavLinkStyled to="/cheques-cadeaux" onClick={() => setMenuOpen(false)}>
                 Chèques cadeaux
-              </StyledNavLink>
-            </MenuItem>
-            <MenuItem>
-              <StyledNavLink to="/nos-produits" onClick={() => setMenuOpen(false)}>
+              </S.StyledNavLinkStyled>
+            </S.MenuItem>
+            <S.MenuItem>
+              <S.StyledNavLinkStyled to="/nos-produits" onClick={() => setMenuOpen(false)}>
                 Nos produits
-              </StyledNavLink>
-            </MenuItem>
-            <ButtonSection>
-              <Button to="/rendez-vous" onClick={() => setMenuOpen(false)}>
+              </S.StyledNavLinkStyled>
+            </S.MenuItem>
+            <S.ButtonSection>
+              <S.Button as={NavLink} to="/rendez-vous" onClick={() => setMenuOpen(false)}>
                 Rendez-vous
-              </Button>
-              <Button to="/mon-compte" onClick={() => setMenuOpen(false)}>
+              </S.Button>
+              <S.Button as={NavLink} to="/mon-compte" onClick={() => setMenuOpen(false)}>
                 Mon compte
-              </Button>
-            </ButtonSection>
-            <IconSection>
-              <Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
+              </S.Button>
+            </S.ButtonSection>
+            <S.IconSection>
+              <S.Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
                 <FaFacebook size={20} />
-              </Icon>
-              <Icon href="https://www.instagram.com/_peaudor/" target="_blank" aria-label="Instagram">
+              </S.Icon>
+              <S.Icon href="https://www.instagram.com/_peaudor/" target="_blank" aria-label="Instagram">
                 <FaInstagram size={20} />
-              </Icon>
-            </IconSection>
-          </Menu>
+              </S.Icon>
+            </S.IconSection>
+          </S.Menu>
         )}
 
-        {/* Menu desktop (affiché par défaut sur les grands écrans) */}
-        <DesktopMenu>
-          <MenuItem>
-            <StyledNavLink to="/nos-expertes">Nos expertes</StyledNavLink>
-          </MenuItem>
-          <MenuItem>
-            <StyledNavLink to="/notre-centre">Notre centre</StyledNavLink>
-          </MenuItem>
-          <MenuItem>
-            <StyledNavLink to="/cheques-cadeaux">Chèques cadeaux</StyledNavLink>
-          </MenuItem>
-          <MenuItem>
-            <StyledNavLink to="/nos-produits">Nos produits</StyledNavLink>
-          </MenuItem>
-          <ButtonSection>
-            <Button to="/rendez-vous">Rendez-vous</Button>
-            <Button to="/mon-compte">Mon compte</Button>
-          </ButtonSection>
-          <IconSection>
-            <Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
+        <S.DesktopMenu>
+          <S.MenuItem>
+            <S.StyledNavLinkStyled to="/nos-soins">Nos soins</S.StyledNavLinkStyled>
+            <S.SubMenu>
+              {categories.map((category, index) => (
+                <S.StyledNavLinkStyled key={index} to={category.link}>
+                  {category.title}
+                </S.StyledNavLinkStyled>
+              ))}
+            </S.SubMenu>
+          </S.MenuItem>
+          <S.MenuItem>
+            <S.StyledNavLinkStyled to="/notre-centre">Notre centre</S.StyledNavLinkStyled>
+          </S.MenuItem>
+          <S.MenuItem>
+            <S.StyledNavLinkStyled to="/cheques-cadeaux">Chèques cadeaux</S.StyledNavLinkStyled>
+          </S.MenuItem>
+          <S.MenuItem>
+            <S.StyledNavLinkStyled to="/nos-produits">Nos produits</S.StyledNavLinkStyled>
+          </S.MenuItem>
+          <S.ButtonSection>
+            <S.Button as={NavLink} to="/rendez-vous">Rendez-vous</S.Button>
+            <S.Button as={NavLink} to="/mon-compte">Mon compte</S.Button>
+          </S.ButtonSection>
+          <S.IconSection>
+            <S.Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
               <FaFacebook size={20} />
-            </Icon>
-            <Icon href="https://www.instagram.com/_peaudor/" target="_blank" aria-label="Instagram">
+            </S.Icon>
+            <S.Icon href="https://www.instagram.com/_peaudor/" target="_blank" aria-label="Instagram">
               <FaInstagram size={20} />
-            </Icon>
-          </IconSection>
-        </DesktopMenu>
-      </Container>
-    </Nav>
+            </S.Icon>
+          </S.IconSection>
+        </S.DesktopMenu>
+      </S.Container>
+    </S.Nav>
   );
 };
 
 export default NavBar;
-
-// Styled-Components avec le thème
-const Nav = styled.nav`
-  background-color:  ${({ theme }) => theme.colors.dark};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
-  padding: ${({ theme }) => theme.spacing.large} ${({ theme }) => theme.spacing.large};
-`;
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Logo = styled.div`
-  font-family: ${({ theme }) => theme.fonts.logo};
-  font-size: 1.8rem;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-const StyledLogoLink = styled(NavLink)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.primary};
-  
-  &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-`;
-
-const Hamburger = styled.div`
-  cursor: pointer;
-
-  @media (max-width: 1200px) {
-    display: block;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  @media (min-width: 1201px) {
-    display: none;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const Menu = styled.div`
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.dark};
-  padding: ${({ theme }) => theme.spacing.large};
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.large};
-  align-items: center;
-  z-index: 10;
-
-  @media (min-width: 1201px) {
-    display: none;
-  }
-`;
-
-const DesktopMenu = styled.div`
-  display: none;
-
-  @media (min-width: 1201px) {
-    display: flex;
-    gap: ${({ theme }) => theme.spacing.medium};
-    align-items: center;
-  }
-`;
-
-const MenuItem = styled.div`
-  font-family: ${({ theme }) => theme.fonts.main};
-  font-size: 1rem;
-  font-weight: 600;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
-  }
-`;
-
-const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 5px 10px;
-  border-radius: 3px;
-
-  &.active {
-    background-color: transparent;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    transition: all 0.3s ease-in-out;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const Button = styled(NavLink)`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: #f8f8f8;
-  text-decoration: none;
-  font-family: ${({ theme }) => theme.fonts.main};
-  font-size: 0.9rem;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
-    transition: all 0.3s ease-in-out;
-  }
-`;
-
-const ButtonSection = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.medium};
-  justify-content: space-around;
-`;
-
-const IconSection = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-`;
-
-const Icon = styled.a`
-  color: ${({ theme }) => theme.colors.primary};
-  display: flex;
-  align-items: center;
-  margin: 5px;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    transition: all 0.3s ease-in-out;
-  }
-`;

@@ -6,3 +6,13 @@
 .page-container{
     min-height: 75vh;
 }
+
+.button-module_button-9td2v:not(.button-module_linked-yJ4Uk):not(.button-module_underlined-H3lcl):not(.button-module_hasAvailabilities-1a8rw).button-module_isFullWidth-6Z3\+A, .button-module_button-9td2v:not(.button-module_linked-yJ4Uk):not(.button-module_underlined-H3lcl):not(.button-module_hasAvailabilities-1a8rw).button-module_large-oun2l {
+    background-color: #c0a667 !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+.button-module_button-9td2v.button-module_danger--A2Al {
+    box-shadow: none;
+}
