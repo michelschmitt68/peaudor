@@ -3,12 +3,13 @@ import { NavLink } from "react-router-dom";
 
 // NavBar container
 export const Nav = styled.nav`
+  background-color: #060606;
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.spacing.large} ${({ theme }) => theme.spacing.large};
 `;
 
 export const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -25,6 +26,10 @@ export const StyledLogoLink = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primary};
 
+  img{
+    max-width: 150px;
+  }
+
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};
   }
@@ -33,7 +38,7 @@ export const StyledLogoLink = styled.a`
 export const Hamburger = styled.div`
   cursor: pointer;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1300px) {
     display: block;
     color: ${({ theme }) => theme.colors.primary};
   }
@@ -49,7 +54,7 @@ export const Menu = styled.div`
   top: 60px;
   left: 0;
   width: 100%;
-  background-color: #272727;
+  background-color: #060606;;
   padding: ${({ theme }) => theme.spacing.large};
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -80,6 +85,7 @@ export const MenuItem = styled.div`
   position: relative;
   padding: 10px;
   cursor: pointer;
+  color: ${({ theme }) => theme.colors.primary};
 
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};

@@ -1,209 +1,204 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { PageContainer, Container, Content, Header, Title, InteractiveSection, InteractiveTitle, Separator, Text, TextAnswer } from "./SharedStyles";
 import ReactPlayer from "react-player";
+import styled from "styled-components";
 
 const EpilationAuFil = () => {
-  const [showDescription, setShowDescription] = useState(false);
-  const [showTarifs, setShowTarifs] = useState(false);
-  const [showFAQ, setShowFAQ] = useState(false);
+  const [showDescription, setShowDescription] = useState(true);
+  const [showTarifs, setShowTarifs] = useState(true);
+  const [showFAQ, setShowFAQ] = useState(true);
+  const [showVideo, setShowVideo] = useState(true);
+  const [faqStates, setFaqStates] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+  });
+
+  const toggleFaq = (index) => {
+    setFaqStates((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   return (
     <PageContainer>
-     <Container>       
-         <Header>
-           <Title>Bronzage UV</Title>
-           <VideoContainer>
-             <ReactPlayer
-               url="/Soins/videos/Épilation au fil.mp4"
-               controls
-               width="100%"
-               height="auto"
-             />
-           </VideoContainer>
-         </Header>
-        
-         <Content>
-           <InteractiveSection>
-             <InteractiveTitle
-               onClick={() => setShowDescription(!showDescription)}
-             >
-               Description
-             </InteractiveTitle>
-             {showDescription && (
-               <Text>
-                 <h3>Bronzage UV</h3>
-                 <p>La cryolipolyse est une technique de médecine esthétique non invasive qui permet de réduire les graisses localisées par l’utilisation du froid contrôlé. Inspirée des recherches sur l’impact du froid sur les cellules graisseuses, cette méthode cible les amas de graisse résistants aux régimes et à l’exercice physique, en les éliminant progressivement.</p>
-        
-                 <h3>Comment ça fonctionne ?</h3>
-                 <p><strong>1. Action du froid contrôlé :</strong></p>
-                 <ul>
-                   <li>Les cellules graisseuses (adipocytes) sont sensibles au froid extrême. Lorsqu’elles sont exposées à des températures très basses, elles entrent dans un processus appelé apoptose (mort cellulaire programmée).</li>
-                   <li>Ces cellules mortes sont ensuite naturellement éliminées par le système lymphatique dans les semaines suivant le traitement.</li>
-                 </ul>
-                 <p><strong>2. Procédé :</strong></p>
-                 <ul>
-                   <li>Une pièce à main (applicateur) est placée sur la zone à traiter. Elle aspire légèrement la peau et la graisse sous-cutanée tout en appliquant un froid contrôlé.</li>
-                   <li>La séance dure généralement entre 30 minutes et 1 heure par zone.</li>
-                 </ul>
-        
-                 <h3>Les avantages de la cryolipolyse</h3>
-                 <ul>
-                   <li>Réduction des graisses localisées : Idéal pour cibler les zones résistantes (ventre, poignées d’amour, cuisses, bras, dos, etc.).</li>
-                   <li>Traitement non invasif : Pas d’aiguille, pas d’anesthésie, ni de chirurgie.</li>
-                   <li>Résultats progressifs et naturels : Les graisses sont éliminées naturellement par l’organisme en 6 à 12 semaines après le traitement.</li>
-                   <li>Aucune période d’arrêt : Reprise immédiate des activités après la séance.</li>
-                 </ul>
-        
-                 <h3>Pour qui est-ce adapté ?</h3>
-                 <ul>
-                   <li>Personnes proches de leur poids idéal mais présentant des amas graisseux localisés.</li>
-                   <li>Candidats en bonne santé générale, avec une peau élastique.</li>
-                   <li>Non recommandé pour les personnes souffrant de certaines conditions médicales (ex. : hernie, cryoglobulinémie).</li>
-                 </ul>
-        
-                 <h3>Résultats attendus</h3>
-                 <ul>
-                   <li>Une réduction visible de la graisse dans les zones traitées, jusqu’à 20 à 30 % en une seule séance.</li>
-                   <li>Amélioration progressive sur plusieurs semaines.</li>
-                 </ul>
-        
-                 <h3>Précautions et effets secondaires</h3>
-                 <ul>
-                   <li>Les effets secondaires sont généralement légers : rougeurs, engourdissements ou sensations de tiraillement temporaire.</li>
-                   <li>Une consultation préalable est nécessaire pour évaluer l’éligibilité et définir un plan adapté à vos objectifs.</li>
-                 </ul>
-        
-                 <p>La cryolipolyse est une solution efficace pour remodeler la silhouette de façon naturelle et sans effort, en complément d’un mode de vie sain.</p>
-               </Text>
-             )}
-             <Separator />
-           </InteractiveSection>
-        
-           <InteractiveSection>
-             <InteractiveTitle onClick={() => setShowTarifs(!showTarifs)}>
-               Tarifs
-             </InteractiveTitle>
-             {showTarifs && (
-               <Text>
-                 <ul>
-                   <li>8min : 6,40€</li>
-                   <li>10min : 8€</li>
-                   <li>12min : 9,60€</li>
-                   <li>14min : 11,20€</li>
-                   <li>16min : 12,80€</li>
-                 </ul>
-               </Text>
-             )}
-             <Separator />
-           </InteractiveSection>
-        
-           <InteractiveSection>
-             <InteractiveTitle onClick={() => setShowFAQ(!showFAQ)}>
-               Questions fréquentes
-             </InteractiveTitle>
-             {showFAQ && (
-               <Text>
-                 <ul>
-                   <li><strong>Est-ce douloureux ?</strong> Non, la cryolipolyse est généralement bien tolérée, bien que des sensations de froid ou de tiraillement puissent être ressenties.</li>
-                   <li><strong>Combien de séances sont nécessaires ?</strong> Cela dépend des objectifs, mais une à trois séances par zone suffisent généralement.</li>
-                   <li><strong>Quand voit-on les résultats ?</strong> Les résultats apparaissent progressivement sur 6 à 12 semaines.</li>
-                 </ul>
-               </Text>
-             )}
-             <Separator />
-           </InteractiveSection>
-         </Content>
-     </Container>
+      <Container>
+        <Header>
+          <Title>Épilation au fil</Title>
+        </Header>
+
+        <Content>
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowVideo(!showVideo)}>
+              Vidéos
+            </InteractiveTitle>
+            {showVideo && (
+              <>
+                <ResponsiveVideoContainer>
+                  <ReactPlayer
+                    url="/Soins/videos/Epilation_au_fil.mp4"
+                    controls
+                    width="100%"
+                    height="auto"
+                  />
+                </ResponsiveVideoContainer>
+              </>
+
+            )}
+            <Separator />
+          </InteractiveSection>
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowDescription(!showDescription)}>
+              Description
+            </InteractiveTitle>
+            {showDescription && (
+              <Text>
+                <p>Offrez à votre peau une épilation précise et naturelle grâce à la technique du fil. Idéale pour les sourcils, la lèvre supérieure ou le visage entier, cette méthode douce respecte les peaux sensibles tout en garantissant un résultat net et impeccable.</p>
+              </Text>
+            )}
+            <Separator />
+          </InteractiveSection>
+
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowTarifs(!showTarifs)}>
+              Tarifs
+            </InteractiveTitle>
+            {showTarifs && (
+              <Text>
+                <ul>
+                  <li>
+                    Sourcils
+                    <div className="details-container">
+                      <span className="price">12€</span>
+                    </div>
+                  </li>
+                  <li>
+                    Lèvre supérieure
+                    <div className="details-container">
+                      <span className="price">6€</span>
+                    </div>
+                  </li>
+                  <li>
+                    Forfait Épilation sourcils et lèvre supérieure
+                    <div className="details-container">
+                      <span className="price">14€</span>
+                    </div>
+                  </li>
+                  <li>
+                    Joues
+                    <div className="details-container">
+                      <span className="price">10€</span>
+                    </div>
+                  </li>
+                  <li>
+                    Menton
+                    <div className="details-container">
+                      <span className="price">6€</span>
+                    </div>
+                  </li>
+                  <li>
+                    Visage complet
+                    <div className="details-container">
+                      <span className="price">25€</span>
+                    </div>
+                  </li>
+                </ul>
+              </Text>
+            )}
+            <Separator />
+          </InteractiveSection>
+
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowFAQ(!showFAQ)}>
+              Questions fréquentes
+            </InteractiveTitle>
+            {showFAQ && (
+              <TextAnswer>
+                <ul>
+                  <li>
+                    <strong onClick={() => toggleFaq(1)}>
+                      Qu’est-ce que l’épilation au fil et en quoi est-elle différente des autres méthodes d’épilation ?
+                    </strong>
+                    {faqStates[1] && (
+                      <p>
+                        L’épilation au fil est une technique ancestrale qui consiste à
+                        utiliser un fil en coton pour saisir et éliminer les poils à la
+                        racine. Contrairement à l’épilation à la cire ou à la pince, cette
+                        méthode permet une précision maximale, idéale pour les zones
+                        délicates comme les sourcils ou la lèvre supérieure. Elle est
+                        également moins irritante pour la peau et permet de garantir une
+                        épilation plus nette et durable.
+                      </p>
+                    )}
+                  </li>
+                  <li>
+                    <strong onClick={() => toggleFaq(2)}>
+                      L’épilation au fil est-elle adaptée à tous les types de peau ?
+                    </strong>
+                    {faqStates[2] && (
+                      <p>
+                        Oui, l’épilation au fil est adaptée à tous les types de peau,
+                        y compris les peaux sensibles. Comme elle n’utilise pas de produits
+                        chimiques ni de chaleur, elle est souvent plus douce que d’autres
+                        méthodes comme la cire. Cependant, pour les peaux très sensibles ou
+                        sujettes à des irritations, il est recommandé de consulter un
+                        professionnel avant de procéder à l’épilation pour s’assurer que
+                        cette méthode convient.
+                      </p>
+                    )}
+                  </li>
+                  <li>
+                    <strong onClick={() => toggleFaq(3)}>
+                      Combien de temps durent les résultats de l’épilation au fil ?
+                    </strong>
+                    {faqStates[3] && (
+                      <p>
+                        Les résultats de l’épilation au fil peuvent durer entre 3 et 4
+                        semaines, selon la vitesse de repousse des poils de chaque personne.
+                        En éliminant les poils à la racine, cette méthode offre une épilation
+                        plus durable par rapport à la cire, et permet une repousse plus fine
+                        et plus douce.
+                      </p>
+                    )}
+                  </li>
+                  <li>
+                    <strong onClick={() => toggleFaq(4)}>
+                      L’épilation au fil fait-elle plus mal que la cire ou la pince ?
+                    </strong>
+                    {faqStates[4] && (
+                      <p>
+                        La douleur ressentie lors de l’épilation au fil dépend de la
+                        sensibilité de chaque personne, mais elle est généralement
+                        considérée comme moins intense que celle de la cire, car la peau
+                        n’est pas chauffée. Nombreuses personnes trouvent cette méthode plus
+                        précise et moins irritante.
+                      </p>
+                    )}
+                  </li>
+                </ul>
+              </TextAnswer>
+            )}
+            <Separator />
+          </InteractiveSection>
+        </Content>
+      </Container>
     </PageContainer>
   );
 };
 
 export default EpilationAuFil;
 
-// Styled-components
-const PageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #313131;
-`;
+const ResponsiveVideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
 
-const Container = styled.div`
-    width: 75%;
-    padding: 5rem;
-    background-color: ${({ theme }) => theme.colors.white || "#1a73e8"};
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 80px;
-    margin-top: 80px;
-    border: solid 2px ${({ theme }) => theme.colors.secondary || "#1a73e8"};
-    @media (max-width: 768px) {
-    padding: 3.5rem;
-  }
-`;
-
-const Header = styled.header`
-  text-align: center;
-  margin-bottom: 6rem;
-`;
-
-const Title = styled.h1`
-  font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.primary || "#1a73e8"};
-  margin-bottom: 5rem;
   @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-`;
-
-const VideoContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  video {
-    width: 100%;
-    border-radius: 8px;
-  }
-`;
-
-const Content = styled.div`
-  line-height: 1.8;
-  color: #000;
-`;
-
-const InteractiveSection = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const InteractiveTitle = styled.h2`
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.primary || "#1a73e8"};
-  cursor: pointer;
-  margin-bottom: 1rem;
-  &:hover {
-    color: #b68d2c;
-  }
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
-
-const Separator = styled.hr`
-    border: none;
-    border-top: 1px solid #c0a667;
-    width: 80%;
-`;
-
-const Text = styled.div`
-  font-size: 1rem;
-  color: #494949;
-  margin-bottom: 2rem;
-  ul {
-    margin-top: 0.5rem;
-    padding-left: 1.5rem;
-    list-style: disc;
-  }
-  li {
-    margin-bottom: 0.75rem;
+    max-width: 100%;
   }
 `;

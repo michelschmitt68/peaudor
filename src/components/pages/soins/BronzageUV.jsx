@@ -2,245 +2,161 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 
-const Cryolipolyse = () => {
-  const [showDescription, setShowDescription] = useState(false);
-  const [showTarifs, setShowTarifs] = useState(false);
-  const [showFAQ, setShowFAQ] = useState(false);
+import { PageContainer, Container, Content, Header, Title, InteractiveSection, InteractiveTitle, Separator, Text, TextAnswer } from "./SharedStyles";
+
+const Bronzage = () => {
+  const [showDescription, setShowDescription] = useState(true);
+  const [showTarifs, setShowTarifs] = useState(true);
+  const [showFAQ, setShowFAQ] = useState(true);
   const [showPopup, setShowPopup] = useState(true);
+  const [showVideo, setShowVideo] = useState(true);
+  const [faqStates, setFaqStates] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+  });
+
+  const toggleFaq = (index) => {
+    setFaqStates((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   return (
     <PageContainer>
-     <Container>
-         {showPopup && (
-           <PopupOverlay>
-             <PopupContent>
-               <PopupTitle>Notice d'information</PopupTitle>
-               <PopupText>
-                 Attention! L'exposition aux rayonnements d'un appareil de bronzage peut provoquer des cancers de la peau et des yeux et est responsable d'un vieillissement cutané prématuré. L'existence d'une réglementation du bronzage artificiel ne permet pas d'éliminer les risques sanitaires encourus en cas d'exposition, en particulier le risque du cancer. L'utilisation de ces appareils est interdite aux personnes de moins de 18 ans. Portez les lunettes de protection fournies.
-               </PopupText>
-               <PopupButton onClick={() => setShowPopup(false)}>J'ai compris</PopupButton>
-             </PopupContent>
-           </PopupOverlay>
-         )}
-        
-         <Header>
-           <Title>Bronzage UV</Title>
-           <VideoContainer>
-             <ReactPlayer
-               url="/Soins/videos/BronzageUV.mp4"
-               controls
-               width="100%"
-               height="auto"
-             />
-           </VideoContainer>
-         </Header>
-        
-         <Content>
-           <InteractiveSection>
-             <InteractiveTitle
-               onClick={() => setShowDescription(!showDescription)}
-             >
-               Description
-             </InteractiveTitle>
-             {showDescription && (
-               <Text>
-                 <h3>Bronzage UV</h3>
-                 <p>La cryolipolyse est une technique de médecine esthétique non invasive qui permet de réduire les graisses localisées par l’utilisation du froid contrôlé. Inspirée des recherches sur l’impact du froid sur les cellules graisseuses, cette méthode cible les amas de graisse résistants aux régimes et à l’exercice physique, en les éliminant progressivement.</p>
-        
-                 <h3>Comment ça fonctionne ?</h3>
-                 <p><strong>1. Action du froid contrôlé :</strong></p>
-                 <ul>
-                   <li>Les cellules graisseuses (adipocytes) sont sensibles au froid extrême. Lorsqu’elles sont exposées à des températures très basses, elles entrent dans un processus appelé apoptose (mort cellulaire programmée).</li>
-                   <li>Ces cellules mortes sont ensuite naturellement éliminées par le système lymphatique dans les semaines suivant le traitement.</li>
-                 </ul>
-                 <p><strong>2. Procédé :</strong></p>
-                 <ul>
-                   <li>Une pièce à main (applicateur) est placée sur la zone à traiter. Elle aspire légèrement la peau et la graisse sous-cutanée tout en appliquant un froid contrôlé.</li>
-                   <li>La séance dure généralement entre 30 minutes et 1 heure par zone.</li>
-                 </ul>
-        
-                 <h3>Les avantages de la cryolipolyse</h3>
-                 <ul>
-                   <li>Réduction des graisses localisées : Idéal pour cibler les zones résistantes (ventre, poignées d’amour, cuisses, bras, dos, etc.).</li>
-                   <li>Traitement non invasif : Pas d’aiguille, pas d’anesthésie, ni de chirurgie.</li>
-                   <li>Résultats progressifs et naturels : Les graisses sont éliminées naturellement par l’organisme en 6 à 12 semaines après le traitement.</li>
-                   <li>Aucune période d’arrêt : Reprise immédiate des activités après la séance.</li>
-                 </ul>
-        
-                 <h3>Pour qui est-ce adapté ?</h3>
-                 <ul>
-                   <li>Personnes proches de leur poids idéal mais présentant des amas graisseux localisés.</li>
-                   <li>Candidats en bonne santé générale, avec une peau élastique.</li>
-                   <li>Non recommandé pour les personnes souffrant de certaines conditions médicales (ex. : hernie, cryoglobulinémie).</li>
-                 </ul>
-        
-                 <h3>Résultats attendus</h3>
-                 <ul>
-                   <li>Une réduction visible de la graisse dans les zones traitées, jusqu’à 20 à 30 % en une seule séance.</li>
-                   <li>Amélioration progressive sur plusieurs semaines.</li>
-                 </ul>
-        
-                 <h3>Précautions et effets secondaires</h3>
-                 <ul>
-                   <li>Les effets secondaires sont généralement légers : rougeurs, engourdissements ou sensations de tiraillement temporaire.</li>
-                   <li>Une consultation préalable est nécessaire pour évaluer l’éligibilité et définir un plan adapté à vos objectifs.</li>
-                 </ul>
-        
-                 <p>La cryolipolyse est une solution efficace pour remodeler la silhouette de façon naturelle et sans effort, en complément d’un mode de vie sain.</p>
-               </Text>
-             )}
-             <Separator />
-           </InteractiveSection>
-        
-           <InteractiveSection>
-             <InteractiveTitle onClick={() => setShowTarifs(!showTarifs)}>
-               Tarifs
-             </InteractiveTitle>
-             {showTarifs && (
-               <Text>
-                 <ul>
-                   <li>8min : 6,40€</li>
-                   <li>10min : 8€</li>
-                   <li>12min : 9,60€</li>
-                   <li>14min : 11,20€</li>
-                   <li>16min : 12,80€</li>
-                 </ul>
-               </Text>
-             )}
-             <Separator />
-           </InteractiveSection>
-        
-           <InteractiveSection>
-             <InteractiveTitle onClick={() => setShowFAQ(!showFAQ)}>
-               Questions fréquentes
-             </InteractiveTitle>
-             {showFAQ && (
-               <Text>
-                 <ul>
-                   <li><strong>Est-ce douloureux ?</strong> Non, la cryolipolyse est généralement bien tolérée, bien que des sensations de froid ou de tiraillement puissent être ressenties.</li>
-                   <li><strong>Combien de séances sont nécessaires ?</strong> Cela dépend des objectifs, mais une à trois séances par zone suffisent généralement.</li>
-                   <li><strong>Quand voit-on les résultats ?</strong> Les résultats apparaissent progressivement sur 6 à 12 semaines.</li>
-                 </ul>
-               </Text>
-             )}
-             <Separator />
-           </InteractiveSection>
-         </Content>
-     </Container>
+      <Container>
+        {showPopup && (
+          <PopupOverlay>
+            <PopupContent>
+              <PopupTitle>Notice d'information</PopupTitle>
+              <PopupText>
+                Attention! L'exposition aux rayonnements d'un appareil de bronzage peut provoquer des cancers de la peau et des yeux et est responsable d'un vieillissement cutané prématuré. L'existence d'une réglementation du bronzage artificiel ne permet pas d'éliminer les risques sanitaires encourus en cas d'exposition, en particulier le risque du cancer. L'utilisation de ces appareils est interdite aux personnes de moins de 18 ans. Portez les lunettes de protection fournies.
+              </PopupText>
+              <PopupButton onClick={() => setShowPopup(false)}>J'ai compris</PopupButton>
+            </PopupContent>
+          </PopupOverlay>
+        )}
+
+        <Header>
+          <Title>Bronzage UV Collagène</Title>
+        </Header>
+
+        <Content>
+        <InteractiveSection>
+          <InteractiveTitle onClick={() => setShowVideo(!showVideo)}>
+              Vidéos
+            </InteractiveTitle>
+            {showVideo && (
+              <ResponsiveVideoContainer>
+                <ReactPlayer
+                  url="/Soins/videos/BronzageUV.mp4"
+                  controls
+                  width="100%"
+                  height="auto"
+                />
+              </ResponsiveVideoContainer>
+            )}
+            <Separator />
+          </InteractiveSection>
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowDescription(!showDescription)}>
+              Description
+            </InteractiveTitle>
+            {showDescription && (
+              <Text>
+                <p>
+                  Alliez un bronzage naturel et progressif aux bienfaits d’un soin jeunesse ! Cette technologie innovante combine des UV doux pour un teint hâlé éclatant et une lumière rouge stimulante qui booste la production de collagène, raffermit la peau et réduit les signes de l’âge. Idéal pour sublimer votre peau tout en prenant soin d’elle.
+                </p>
+              </Text>
+            )}
+            <Separator />
+          </InteractiveSection>
+
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowTarifs(!showTarifs)}>
+              Tarifs
+            </InteractiveTitle>
+            {showTarifs && (
+              <Text>
+                <ul>
+                  <li>8min <div className="details-container"><span className="price">8€</span></div></li>
+                  <li>10min <div className="details-container"><span className="price">10€</span></div></li>
+                  <li>12min <div className="details-container"><span className="price">12€</span></div></li>
+                  <li>14min <div className="details-container"><span className="price">14€</span></div></li>
+                  <li>16min <div className="details-container"><span className="price">16€</span></div></li>
+                  <li>18min <div className="details-container"><span className="price">18€</span></div></li>
+                  <li>20min <div className="details-container"><span className="price">20€</span></div></li>
+                </ul>
+              </Text>
+            )}
+            <Separator />
+          </InteractiveSection>
+
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowFAQ(!showFAQ)}>
+              Questions fréquentes
+            </InteractiveTitle>
+            {showFAQ && (
+              <TextAnswer>
+                <ul>
+                  <li>
+                    <strong onClick={() => toggleFaq(1)}>
+                      Le bronzage UV collagène est-il adapté à tous les types de peau ?
+                    </strong>
+                    {faqStates[1] && (
+                      <p>
+                        Oui, le bronzage UV collagène est adapté à tous les types de peau. Cependant, il est important de respecter les recommandations en termes de fréquence et de durée des séances. Pour les peaux très sensibles ou réactives, il est conseillé de demander l’avis d’un professionnel en institut afin d’adapter les séances à vos besoins spécifiques.
+                      </p>
+                    )}
+                  </li>
+
+                  <li>
+                    <strong onClick={() => toggleFaq(2)}>
+                      Quels sont les bienfaits du bronzage UV collagène ?
+                    </strong>
+                    {faqStates[2] && (
+                      <p>
+                        Le bronzage UV collagène combine les effets des UV pour un teint hâlé et homogène, et les bienfaits de la lumière rouge qui stimule la production de collagène. Cela permet d’améliorer l’élasticité de la peau, de réduire l’apparence des rides et des imperfections, tout en offrant un effet bonne mine. C’est une solution idéale pour allier soin de la peau et bronzage naturel.
+                      </p>
+                    )}
+                  </li>
+
+                  <li>
+                    <strong onClick={() => toggleFaq(3)}>
+                      Combien de temps dure une séance de bronzage UV collagène ?
+                    </strong>
+                    {faqStates[3] && (
+                      <p>
+                        Une séance de bronzage UV collagène dure généralement entre 8 et 20 minutes, selon le type de traitement et les recommandations spécifiques de l’institut. Ce temps permet à la peau de bénéficier des effets des UV et de la stimulation du collagène pour des résultats optimaux.
+                      </p>
+                    )}
+                  </li>
+
+                  <li>
+                    <strong onClick={() => toggleFaq(4)}>
+                      Le bronzage UV collagène peut-il aider à réduire les rides et les signes de vieillissement ?
+                    </strong>
+                    {faqStates[4] && (
+                      <p>
+                        Oui, le bronzage UV collagène peut aider à réduire l’apparence des rides et des signes de vieillissement. La stimulation du collagène grâce à la lumière UV et rouge favorise la régénération de la peau, améliore son élasticité et contribue à lisser les ridules. Avec des séances régulières, vous pouvez constater un teint plus éclatant et une peau visiblement plus ferme et tonique.
+                      </p>
+                    )}
+                  </li>
+                </ul>
+              </TextAnswer>
+            )}
+            <Separator />
+          </InteractiveSection>
+        </Content>
+      </Container>
     </PageContainer>
   );
 };
 
-export default Cryolipolyse;
+export default Bronzage;
 
-// Styled-components
-const PageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    position: relative; /* Nécessaire pour positionner le ::before */
-    z-index: 1;
-
-    /* background: linear-gradient(to bottom, #3b3b3b, #000000); */
-    background: url(/test.svg);
-    background-size: cover;
-    background-position: center;
-
-    /* Pseudo-élément ::before */
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Couche noire semi-transparente */
-        z-index: -1; /* Place derrière le contenu du conteneur */
-    }
-`;
-
-
-const Container = styled.div`
-    width: 75%;
-    padding: 5rem;
-    background: radial-gradient(circle at 50% 30%,
-              rgba(227, 194, 155, 0.1) 0%,
-              rgba(33, 38, 44, 1) 80%);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 80px;
-    margin-top: 80px;
-    border: solid 2px ${({ theme }) => theme.colors.white || "#1a73e8"};
-    @media (max-width: 768px) {
-    padding: 2.5rem;
-  }
-`;
-
-const Header = styled.header`
-  text-align: center;
-  margin-bottom: 6rem;
-`;
-
-const Title = styled.h1`
-  font-size: 2.5rem;
-  color: ${({ theme }) => theme.colors.primary || "#1a73e8"};
-  margin-bottom: 5rem;
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-`;
-
-const VideoContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  video {
-    width: 100%;
-    border-radius: 8px;
-  }
-`;
-
-const Content = styled.div`
-  line-height: 1.8;
-  color: #000;
-`;
-
-const InteractiveSection = styled.div`
-  margin-bottom: 2rem;
-`;
-
-const InteractiveTitle = styled.h2`
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.white || "#1a73e8"};
-  cursor: pointer;
-  margin-bottom: 1rem;
-  &:hover {
-    color: #b68d2c;
-  }
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
-
-const Separator = styled.hr`
-    border: none;
-    border-top: 1px solid #ffffff;
-    width: 80%;
-`;
-
-const Text = styled.div`
-  font-size: 1.1rem;
-  color: #dbdbdb;
-  margin-bottom: 2rem;
-  ul {
-    margin-top: 0.5rem;
-    padding-left: 1.5rem;
-    list-style: disc;
-  }
-  li {
-    margin-bottom: 0.75rem;
-  }
-`;
 
 const PopupOverlay = styled.div`
   position: fixed;
@@ -290,3 +206,17 @@ const PopupButton = styled.button`
     background-color: #b68d2c;
   }
 `;
+
+const ResponsiveVideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+

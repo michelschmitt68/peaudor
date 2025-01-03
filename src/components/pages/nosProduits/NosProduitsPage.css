@@ -1,28 +1,21 @@
-/* Container global */
 .page-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre le contenu horizontalement */
-  padding: 20px; /* Ajoute un peu de marge autour de la page */
-  background-color: #f9f9f9; /* Optionnel : ajoute une couleur de fond à la page */
+  align-items: center; 
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
-/* Conteneur pour la boutique en ligne */
 .shop-container {
   z-index: 2;
-  width: 80%; /* La boutique prendra 80% de la largeur de la page */
-  margin: 20px auto; /* Marge de 20px autour du conteneur et centrée */
-  padding: 50px; /* Padding interne pour ne pas coller les bords */
-  background-color: #fff; /* Optionnel : ajoute une couleur de fond au conteneur */
-  border-radius: 8px; /* Bord arrondi pour le conteneur */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre au conteneur */
+  max-width: 1200px;
+  margin: 20px auto; 
+  padding: 50px; 
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
-
-
-/* button{
-  background-color: red !important;
-} */
-
 
 h2{
   color: #C0A667;

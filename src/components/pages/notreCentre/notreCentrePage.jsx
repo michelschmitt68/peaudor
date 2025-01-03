@@ -43,8 +43,8 @@ const NotreCentrePage = () => {
           <li><span>Lundi:</span> 09:00 - 19:00</li>
           <li><span>Mardi:</span> 09:00 - 18:00</li>
           <li><span>Mercredi:</span> 09:00 - 19:00</li>
-          <li><span>Jeudi:</span> 10:00 - 20:00</li>
-          <li><span>Vendredi:</span> 08:00 - 20:00</li>
+          <li><span>Jeudi:</span> Fermé</li>
+          <li><span>Vendredi:</span> 10:00 - 20:00</li>
           <li><span>Samedi: <span className="rdv">(sur RDV)</span></span> 09:00 - 14:00 </li>
           <li><span>Dimanche: <span className="rdv">(sur RDV)</span></span> 10:00 - 12:00 </li>
         </ul>

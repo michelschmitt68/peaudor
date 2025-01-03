@@ -6,19 +6,21 @@ import * as S from "./Navbar.styles";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   const categories = [
     { title: "Bronzage UV", link: "/soins/bronzage-uv" },
     { title: "Épilation au fil", link: "/soins/epilation-au-fil" },
-    { title: "Épilation à la cire", link: "/soins/epilation-a-la-cire" },
+    { title: "Beauté en duo", link: "/soins/beaute-en-duo" },
     { title: "Beauté du regard", link: "/soins/beaute-du-regard" },
+    { title: "Beauté du sourire", link: "/soins/beaute-du-sourire" },
     { title: "Amincissement", link: "/soins/Cryolipolyse" },
+    { title: "Épilation à la cire", link: "/soins/epilation-a-la-cire" },
     { title: "Soins du visage", link: "/soins/soins-du-visage" },
     { title: "Soins du corps", link: "/soins/soins-du-corps" },
-    { title: "Beauté du sourire", link: "/soins/beaute-du-sourire" },
-    { title: "Maquillage", link: "/soins/maquillage" },
     { title: "Soins des mains", link: "/soins/soins-des-mains" },
     { title: "Soins des pieds", link: "/soins/soins-des-pieds" },
+    { title: "Maquillage", link: "/soins/maquillage" },
     { title: "Vernis semi permanent", link: "/soins/verni-semi-permanent" },
   ];
 
@@ -26,7 +28,7 @@ const NavBar = () => {
     <S.Nav>
       <S.Container>
         <S.Logo>
-          <S.StyledLogoLink as={NavLink} to="/">Peau d'or</S.StyledLogoLink>
+          <S.StyledLogoLink as={NavLink} to="/"><img src="/logopeaudor.png" alt="Peau d'Or Logo" /></S.StyledLogoLink>
         </S.Logo>
 
         <S.Hamburger onClick={() => setMenuOpen((prev) => !prev)}>
@@ -35,21 +37,22 @@ const NavBar = () => {
 
         {menuOpen && (
           <S.Menu>
-            <S.MenuItem>
-              <S.StyledNavLinkStyled to="/nos-soins" onClick={() => setMenuOpen(false)}>
-                Nos soins
-              </S.StyledNavLinkStyled>
-              <S.SubMenu>
+            <S.MenuItem onClick={() => setSubMenuOpen((prev) => !prev)}>
+              Nos soins
+              <S.SubMenuMobile className={subMenuOpen ? "open" : ""}>
                 {categories.map((category, index) => (
                   <S.StyledNavLinkStyled
                     key={index}
                     to={category.link}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setSubMenuOpen(false);
+                    }}
                   >
                     {category.title}
                   </S.StyledNavLinkStyled>
                 ))}
-              </S.SubMenu>
+              </S.SubMenuMobile>
             </S.MenuItem>
             <S.MenuItem>
               <S.StyledNavLinkStyled to="/notre-centre" onClick={() => setMenuOpen(false)}>
@@ -64,6 +67,14 @@ const NavBar = () => {
             <S.MenuItem>
               <S.StyledNavLinkStyled to="/nos-produits" onClick={() => setMenuOpen(false)}>
                 Nos produits
+              </S.StyledNavLinkStyled>
+            </S.MenuItem>
+            <S.MenuItem>
+              <S.StyledNavLinkStyled
+                to="https://docs.google.com/forms/d/e/1FAIpQLScI8xtexAHdmQIguSpPsZsBhsG5vuFkUx91v38TgXTzQZ2v0A/viewform?usp=pp_url"
+                target="_blank"
+                onClick={() => setMenuOpen(false)}>
+                Parrainage
               </S.StyledNavLinkStyled>
             </S.MenuItem>
             <S.ButtonSection>
@@ -87,7 +98,7 @@ const NavBar = () => {
 
         <S.DesktopMenu>
           <S.MenuItem>
-            <S.StyledNavLinkStyled to="/nos-soins">Nos soins</S.StyledNavLinkStyled>
+            Nos soins
             <S.SubMenu>
               {categories.map((category, index) => (
                 <S.StyledNavLinkStyled key={index} to={category.link}>
@@ -104,6 +115,13 @@ const NavBar = () => {
           </S.MenuItem>
           <S.MenuItem>
             <S.StyledNavLinkStyled to="/nos-produits">Nos produits</S.StyledNavLinkStyled>
+          </S.MenuItem>
+          <S.MenuItem>
+            <S.StyledNavLinkStyled
+              to="https://docs.google.com/forms/d/e/1FAIpQLScI8xtexAHdmQIguSpPsZsBhsG5vuFkUx91v38TgXTzQZ2v0A/viewform?usp=pp_url"
+              target="_blank">
+              Parrainage
+            </S.StyledNavLinkStyled>
           </S.MenuItem>
           <S.ButtonSection>
             <S.Button as={NavLink} to="/rendez-vous">Rendez-vous</S.Button>

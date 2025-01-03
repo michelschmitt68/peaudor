@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const TeamSection = () => {
   const teamMembers = [
-    { name: "Alice Dupont", role: "Esthéticienne", image: "/team/personne1.jpeg" },
-    { name: "Pierre Martin", role: "Massothérapeute", image: "/team/personne1.jpeg" },
-    { name: "Sophie Leroy", role: "Maquilleuse", image: "/team/personne1.jpeg" },
+    { name: "Noémie", role: "Experte amincissement & regard" },
+    { name: "Elsa", role: "Esthéticienne polyvalente" },
+    { name: "Maité", role: "Experte sourcils" },
   ];
 
   return (
@@ -14,7 +14,7 @@ const TeamSection = () => {
       <TeamGrid>
         {teamMembers.map((member, index) => (
           <MemberCard key={index}>
-            <Image src={member.image} alt={member.name} />
+            <Image src={'/team/personne1.jpeg'} alt={member.name} />
             <Info>
               <MemberName>{member.name}</MemberName>
               <Role>{member.role}</Role>

@@ -13,7 +13,7 @@ import RendezVousPage from "./components/pages/rendezVous/RendezVousPage";
 import Cryolipolyse from "./components/pages/soins/Cryolipolyse.jsx";
 import BronzageUV from "./components/pages/soins/BronzageUV.jsx";
 import BeauteDuRegard from "./components/pages/soins/BeauteDuRegard.jsx";
-import BeauteDuSourir from "./components/pages/soins/BeauteDuSourir.jsx";
+import BeauteDuSourire from "./components/pages/soins/BeauteDuSourire.jsx";
 import EpilationAuFil from "./components/pages/soins/EpilationAuFil.jsx";
 import EpilationALaCire from "./components/pages/soins/EpilationALaCire.jsx";
 import Maquillage from "./components/pages/soins/Maquillage.jsx";
@@ -22,6 +22,8 @@ import SoinsDesPieds from "./components/pages/soins/SoinsDesPieds.jsx";
 import SoinsDuCorps from "./components/pages/soins/SoinsDuCorps.jsx";
 import SoinsDuVisage from "./components/pages/soins/SoinsDuVisage.jsx";
 import VerniSemiPermanent from "./components/pages/soins/VerniSemiPermanent.jsx";
+import BeauteEnDuo from "./components/pages/soins/BeauteEnDuo.jsx";
+import MentionsLegales from "./components/pages/MentionsLegales.jsx";
 
 const pageVariants = {
   initial: { opacity: 0, x: "100%" },
@@ -29,10 +31,8 @@ const pageVariants = {
   exit: { opacity: 0, x: "-100%" },
 };
 
-
 const App = () => {
   const location = useLocation();
-
   return (
     <>
       <Navbar />
@@ -179,6 +179,20 @@ const App = () => {
             }
           />
           <Route
+            path="/soins/beaute-en-duo"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <BeauteEnDuo />
+              </motion.div>
+            }
+          />
+          <Route
             path="/soins/epilation-a-la-cire"
             element={
               <motion.div
@@ -207,7 +221,7 @@ const App = () => {
             }
           />
           <Route
-            path="/soins/beaute-du-sourir"
+            path="/soins/beaute-du-sourire"
             element={
               <motion.div
                 initial="initial"
@@ -216,7 +230,7 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <BeauteDuSourir />
+                <BeauteDuSourire />
               </motion.div>
             }
           />
@@ -301,6 +315,20 @@ const App = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <VerniSemiPermanent />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/mentions-legales"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <MentionsLegales />
               </motion.div>
             }
           />
