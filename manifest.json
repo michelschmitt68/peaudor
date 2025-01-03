@@ -1,0 +1,15 @@
+{
+  "short_name": "Peau d'Or",
+  "name": "Peau d'Or - Centre de Bien-être",
+  "description": "Centre de bien-être spécialisé dans l'amincissement, le bronzage et les soins de beauté.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#C0A667",
+  "background_color": "#1a1a1a",
+  "icons":
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+}
