@@ -3,10 +3,14 @@ import { NavLink } from "react-router-dom";
 
 // NavBar container
 export const Nav = styled.nav`
-  background-color: #060606;
+  background: linear-gradient(to right, #000000, #393939);
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   padding: ${({ theme }) => theme.spacing.large} ${({ theme }) => theme.spacing.large};
+  @media (max-width: 1200px) {
+    background: linear-gradient(to right, #000000, #1b1a1a);
+  }
 `;
+
 
 export const Container = styled.div`
   max-width: 1500px;
@@ -103,7 +107,6 @@ export const SubMenu = styled.div`
   z-index: 1;
   width: 200px;
   opacity: 0;
-  display: none;
   z-index: 10;
 
   ${MenuItem}:hover & {

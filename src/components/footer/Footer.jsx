@@ -13,16 +13,6 @@ const Footer = () => {
           </Description>
         </LogoSection>
 
-        <LinksSection>
-          <LinksTitle>Pages</LinksTitle>
-          <LinksList>
-            <LinkItem href="#">Accueil</LinkItem>
-            <LinkItem href="/nos-produits">Nos Produits</LinkItem>
-            <LinkItem href="/notre-centre">Contact</LinkItem>
-            <LinkItem href="/cheques-cadeaux">Chèques Cadeaux</LinkItem>
-          </LinksList>
-        </LinksSection>
-
         <SocialSection>
           <SocialTitle>Suivez-nous</SocialTitle>
           <SocialIcons>
@@ -40,8 +30,10 @@ const Footer = () => {
         <CookiesText>
           Nous utilisons des cookies pour nous permettre de mieux comprendre comment le site est
           utilisé. En continuant à utiliser ce site, vous acceptez cette politique.{" "}
-          <LegalLink href="/mentions-legales">Mentions légales</LegalLink>
         </CookiesText>
+        <LegalLink href="/mentions-legales">Mentions légales</LegalLink>
+        <br />
+        <LegalLink href="/cgv">Conditions générales de vente</LegalLink>
         <BottomText>&copy; {new Date().getFullYear()} Peau d'Or. Tous droits réservés.</BottomText>
       </BottomSection>
     </Section>
@@ -62,7 +54,7 @@ const Section = styled.footer`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 700px;
   margin: 0 auto;
   flex-wrap: wrap;
 
@@ -92,42 +84,6 @@ const Description = styled.p`
   font-size: 1rem;
   margin-top: 1rem;
   color: ${({ theme }) => theme.colors.text || "#d8d8d8"};
-`;
-
-const LinksSection = styled.div`
-  flex: 1;
-  max-width: 300px;
-  margin-bottom: 2rem;
-
-  @media (max-width: 768px) {
-    flex: 100%;
-    text-align: center;
-  }
-`;
-
-const LinksTitle = styled.h4`
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: ${({ theme }) => theme.colors.primary || "#6c757d"};
-`;
-
-const LinksList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const LinkItem = styled.a`
-  display: block;
-  font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text || "#d8d8d8"};
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary || "#e60000"};
-    text-decoration: underline;
-  }
 `;
 
 const SocialSection = styled.div`
@@ -164,18 +120,19 @@ const SocialIcon = styled.a`
 `;
 
 const BottomSection = styled.div`
-  background-color: ${({ theme }) => theme.colors.secondary || "#ffffff"};
   padding: 1rem;
+  margin: 1rem;
 `;
 
 const BottomText = styled.p`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.dark || "#d8d8d8"};
+  margin-top: 10px;
+  color: ${({ theme }) => theme.colors.white || "#d8d8d8"};
 `;
 
 const CookiesText = styled.p`
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.colors.text || "#666"};
+  color: ${({ theme }) => theme.colors.text || "#7c7a7a"};
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
@@ -184,7 +141,7 @@ const CookiesText = styled.p`
 `;
 
 const LegalLink = styled.a`
-  color: ${({ theme }) => theme.colors.primary || "#6c757d"};
+  color: ${({ theme }) => theme.colors.secondary || "#6c757d"};
   text-decoration: underline;
 
   &:hover {
