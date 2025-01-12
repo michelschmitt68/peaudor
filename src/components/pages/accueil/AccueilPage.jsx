@@ -7,12 +7,15 @@ import GiftCardsSection from './sections/GiftCardsSection';
 import Separator from '../../reusableUI/Separator';
 import ProductsSection from './sections/ProductsSection';
 import NewsletterSection from './sections/NewsletterSection';
+import PromotionsSection from './sections/PromotionsSection';
 
 
 const AccueilPage = () => {
   return (
     <div>
       <Caroussel />
+      <Separator />
+      <PromotionsSection />
       <Separator />
       <Categories />
       <Separator />
@@ -21,7 +24,7 @@ const AccueilPage = () => {
       <GiftCardsSection />
       <TeamSection />
       <NewsletterSection />
-     </div> 
+    </div>
   )
 }
 

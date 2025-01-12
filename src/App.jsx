@@ -23,7 +23,10 @@ import SoinsDuCorps from "./components/pages/soins/SoinsDuCorps.jsx";
 import SoinsDuVisage from "./components/pages/soins/SoinsDuVisage.jsx";
 import VerniSemiPermanent from "./components/pages/soins/VerniSemiPermanent.jsx";
 import BeauteEnDuo from "./components/pages/soins/BeauteEnDuo.jsx";
+import Soldes from "./components/pages/nosOffres/soldes/Soldes.jsx";
+import VentesPrivees from "./components/pages/nosOffres/ventesPrivees/VentesPrivees.jsx";
 import MentionsLegales from "./components/pages/MentionsLegales.jsx";
+import CGV from "./components/pages/CGV.jsx";
 
 const pageVariants = {
   initial: { opacity: 0, x: "100%" },
@@ -319,6 +322,34 @@ const App = () => {
             }
           />
           <Route
+            path="/nos-soldes"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <Soldes />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/ventes-privees"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <VentesPrivees />
+              </motion.div>
+            }
+          />
+          <Route
             path="/mentions-legales"
             element={
               <motion.div
@@ -329,6 +360,20 @@ const App = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <MentionsLegales />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/cgv"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <CGV />
               </motion.div>
             }
           />

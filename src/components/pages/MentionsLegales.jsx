@@ -18,10 +18,18 @@ const MentionsLegales = () => {
         <SectionTitle>Hébergement</SectionTitle>
         <Text>
           Ce site est hébergé par :<br />
-          OVH<br />
-          Adresse : 2 Rue Kellermann, 59100 Roubaix, France<br />
-          Téléphone : +33 9 72 10 10 07
+          <strong>Vercel, Inc.</strong><br />
+          Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, USA<br />
+          Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">https://vercel.com</a>
         </Text>
+        <Text>
+          Le nom de domaine est fourni par :<br />
+          <strong>IONOS by 1&1</strong><br />
+          Adresse : Elgendorfer Str. 57, 56410 Montabaur, Allemagne<br />
+          Téléphone : +49 721 170 555<br />
+          Site web : <a href="https://www.ionos.fr" target="_blank" rel="noopener noreferrer">https://www.ionos.fr</a>
+        </Text>
+
 
         <SectionTitle>Propriété intellectuelle</SectionTitle>
         <Text>
@@ -70,13 +78,12 @@ const Section = styled.section`
 `;
 
 const Title = styled.h1`
-  font-size: 2.8rem;
-  color: ${({ theme }) => theme.colors.primary || "#2c3e50"};
+  font-size: 2.5rem;
+  color: ${({ theme }) => theme.colors.dark || "#555"};
   text-align: center;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
+  margin-bottom: 3rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 2px;
 `;
 
 const Content = styled.div`
@@ -86,10 +93,10 @@ const Content = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-top: 3rem;
   margin-bottom: 1.2rem;
-  color: ${({ theme }) => theme.colors.primary || "#2980b9"};
+  color: ${({ theme }) => theme.colors.dark || "#2980b9"};
   font-weight: 600;
   border-left: 4px solid ${({ theme }) => theme.colors.primary || "#2980b9"};
   padding-left: 1rem;
@@ -102,7 +109,7 @@ const Text = styled.p`
   text-align: justify;
 
   a {
-    color: ${({ theme }) => theme.colors.secondary || "#2980b9"};
+    color: ${({ theme }) => theme.colors.primary || "#2980b9"};
     font-weight: 500;
     text-decoration: none;
     transition: color 0.3s ease-in-out;

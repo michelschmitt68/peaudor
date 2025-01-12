@@ -6,7 +6,27 @@ import * as S from "./Navbar.styles";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [subMenuOpen, setSubMenuOpen] = useState(false);
+  const [subMenus, setSubMenus] = useState({
+    soins: false,
+    actus: false,
+    offres: false,
+  });
+
+  const toggleSubMenu = (menu) => {
+    setSubMenus((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
+    }));
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setSubMenus({
+      soins: false,
+      actus: false,
+      offres: false,
+    });
+  };
 
   const categories = [
     { title: "Bronzage UV", link: "/soins/bronzage-uv" },
@@ -28,25 +48,26 @@ const NavBar = () => {
     <S.Nav>
       <S.Container>
         <S.Logo>
-          <S.StyledLogoLink as={NavLink} to="/"><img src="/logopeaudor.png" alt="Peau d'Or Logo" /></S.StyledLogoLink>
+          <S.StyledLogoLink as={NavLink} to="/">
+            <img src="/logopeaudor.png" alt="Peau d'Or Logo" />
+          </S.StyledLogoLink>
         </S.Logo>
 
         <S.Hamburger onClick={() => setMenuOpen((prev) => !prev)}>
           <GiHamburgerMenu size={24} />
         </S.Hamburger>
-
         {menuOpen && (
           <S.Menu>
-            <S.MenuItem onClick={() => setSubMenuOpen((prev) => !prev)}>
+            {/* Nos soins */}
+            <S.MenuItem onClick={() => toggleSubMenu("soins")}>
               Nos soins
-              <S.SubMenuMobile className={subMenuOpen ? "open" : ""}>
+              <S.SubMenuMobile className={subMenus.soins ? "open" : ""}>
                 {categories.map((category, index) => (
                   <S.StyledNavLinkStyled
                     key={index}
                     to={category.link}
                     onClick={() => {
-                      setMenuOpen(false);
-                      setSubMenuOpen(false);
+                      closeMenu();
                     }}
                   >
                     {category.title}
@@ -54,37 +75,72 @@ const NavBar = () => {
                 ))}
               </S.SubMenuMobile>
             </S.MenuItem>
+            <S.MenuItem onClick={() => toggleSubMenu("actus")}>
+              Nos Actus
+              <S.SubMenuMobile className={subMenus.actus ? "open" : ""}>
+                <S.MenuItem onClick={() => { toggleSubMenu("offres"); toggleSubMenu("actus"); }}>
+
+                  Nos Offres
+                  <S.SubMenuMobile className={subMenus.offres ? "open" : ""}>
+                    <S.StyledNavLinkStyled
+                      to="/nos-soldes"
+                      onClick={closeMenu}
+                    >
+                      Soldes
+                    </S.StyledNavLinkStyled>
+                    <S.StyledNavLinkStyled
+                      to="/ventes-privees"
+                      onClick={closeMenu}
+                    >
+                      Ventes Privées
+                    </S.StyledNavLinkStyled>
+                  </S.SubMenuMobile>
+                </S.MenuItem>
+              </S.SubMenuMobile>
+            </S.MenuItem>
+
+            {/* Autres éléments du menu */}
             <S.MenuItem>
-              <S.StyledNavLinkStyled to="/notre-centre" onClick={() => setMenuOpen(false)}>
-                Notre centre
+              <S.StyledNavLinkStyled
+                to="/notre-centre"
+                onClick={closeMenu}
+              >
+                Notre Centre
               </S.StyledNavLinkStyled>
             </S.MenuItem>
             <S.MenuItem>
-              <S.StyledNavLinkStyled to="/cheques-cadeaux" onClick={() => setMenuOpen(false)}>
-                Chèques cadeaux
+              <S.StyledNavLinkStyled
+                to="/cheques-cadeaux"
+                onClick={closeMenu}
+              >
+                Chèques Cadeaux
               </S.StyledNavLinkStyled>
             </S.MenuItem>
             <S.MenuItem>
-              <S.StyledNavLinkStyled to="/nos-produits" onClick={() => setMenuOpen(false)}>
-                Nos produits
+              <S.StyledNavLinkStyled
+                to="/nos-produits"
+                onClick={closeMenu}
+              >
+                Nos Produits
               </S.StyledNavLinkStyled>
             </S.MenuItem>
             <S.MenuItem>
               <S.StyledNavLinkStyled
                 to="https://docs.google.com/forms/d/e/1FAIpQLScI8xtexAHdmQIguSpPsZsBhsG5vuFkUx91v38TgXTzQZ2v0A/viewform?usp=pp_url"
                 target="_blank"
-                onClick={() => setMenuOpen(false)}>
+                onClick={closeMenu}
+              >
                 Parrainage
               </S.StyledNavLinkStyled>
             </S.MenuItem>
+
+            {/* Section des boutons */}
             <S.ButtonSection>
-              <S.Button as={NavLink} to="/rendez-vous" onClick={() => setMenuOpen(false)}>
-                Rendez-vous
-              </S.Button>
-              <S.Button as={NavLink} to="/mon-compte" onClick={() => setMenuOpen(false)}>
-                Mon compte
-              </S.Button>
+              <S.Button as={NavLink} to="/rendez-vous" onClick={closeMenu}>Rendez-vous</S.Button>
+              <S.Button as={NavLink} to="/mon-compte" onClick={closeMenu}>Mon compte</S.Button>
             </S.ButtonSection>
+
+            {/* Icônes des réseaux sociaux */}
             <S.IconSection>
               <S.Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
                 <FaFacebook size={20} />
@@ -96,6 +152,8 @@ const NavBar = () => {
           </S.Menu>
         )}
 
+
+        {/* Desktop Menu */}
         <S.DesktopMenu>
           <S.MenuItem>
             Nos soins
@@ -108,18 +166,31 @@ const NavBar = () => {
             </S.SubMenu>
           </S.MenuItem>
           <S.MenuItem>
-            <S.StyledNavLinkStyled to="/notre-centre">Notre centre</S.StyledNavLinkStyled>
+            Nos Actus
+            <S.SubMenu>
+              <S.MenuItem>
+                Nos Offres
+                <S.SubMenu>
+                  <S.StyledNavLinkStyled to="/nos-soldes">Soldes</S.StyledNavLinkStyled>
+                  <S.StyledNavLinkStyled to="/ventes-privees">Ventes Privées</S.StyledNavLinkStyled>
+                </S.SubMenu>
+              </S.MenuItem>
+            </S.SubMenu>
           </S.MenuItem>
           <S.MenuItem>
-            <S.StyledNavLinkStyled to="/cheques-cadeaux">Chèques cadeaux</S.StyledNavLinkStyled>
+            <S.StyledNavLinkStyled to="/notre-centre">Notre Centre</S.StyledNavLinkStyled>
           </S.MenuItem>
           <S.MenuItem>
-            <S.StyledNavLinkStyled to="/nos-produits">Nos produits</S.StyledNavLinkStyled>
+            <S.StyledNavLinkStyled to="/cheques-cadeaux">Chèques Cadeaux</S.StyledNavLinkStyled>
+          </S.MenuItem>
+          <S.MenuItem>
+            <S.StyledNavLinkStyled to="/nos-produits">Nos Produits</S.StyledNavLinkStyled>
           </S.MenuItem>
           <S.MenuItem>
             <S.StyledNavLinkStyled
               to="https://docs.google.com/forms/d/e/1FAIpQLScI8xtexAHdmQIguSpPsZsBhsG5vuFkUx91v38TgXTzQZ2v0A/viewform?usp=pp_url"
-              target="_blank">
+              target="_blank"
+            >
               Parrainage
             </S.StyledNavLinkStyled>
           </S.MenuItem>
