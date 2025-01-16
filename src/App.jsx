@@ -7,7 +7,7 @@ import Accueil from "./components/pages/accueil/AccueilPage";
 import NosExpertes from "./components/pages/nosExpertes/NosExpertesPage";
 import NotreCentre from "./components/pages/notreCentre/NotreCentrePage.jsx";
 import ChequesCadeaux from "./components/pages/chequeCadeaux/ChequesCadeauxPage";
-import NosProduits from "./components/pages/nosProduits/NosProduitsPage";
+import NosProduits from "./components/pages/nosProduits/nosProduitsPage.jsx";
 import MonCompte from "./components/pages/monCompte/MonComptePage";
 import RendezVousPage from "./components/pages/rendezVous/RendezVousPage";
 import Cryolipolyse from "./components/pages/soins/Cryolipolyse.jsx";
