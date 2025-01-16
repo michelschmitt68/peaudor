@@ -5,7 +5,7 @@ import Navbar from "./components/navBar/NavBar";
 import Footer from "./components/footer/Footer";
 import Accueil from "./components/pages/accueil/AccueilPage";
 import NosExpertes from "./components/pages/nosExpertes/NosExpertesPage";
-import NotreCentre from "./components/pages/notreCentre/notreCentre.jsx";
+import NotreCentre from "./components/pages/notreCentre/NotreCentrePage.jsx";
 import ChequesCadeaux from "./components/pages/chequeCadeaux/ChequesCadeauxPage";
 import NosProduits from "./components/pages/nosProduits/nosProduitsPage.jsx";
 import MonCompte from "./components/pages/monCompte/MonComptePage";
