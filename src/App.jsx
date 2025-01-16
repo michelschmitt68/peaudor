@@ -10,19 +10,8 @@ import ChequesCadeaux from "./components/pages/chequeCadeaux/ChequesCadeauxPage"
 import NosProduits from "./components/pages/nosProduits/nosProduitsPage.jsx";
 import MonCompte from "./components/pages/monCompte/MonComptePage";
 import RendezVousPage from "./components/pages/rendezVous/RendezVousPage";
-import Cryolipolyse from "./components/pages/soins/Cryolipolyse.jsx";
 import BronzageUV from "./components/pages/soins/BronzageUV.jsx";
-import BeauteDuRegard from "./components/pages/soins/BeauteDuRegard.jsx";
-import BeauteDuSourire from "./components/pages/soins/BeauteDuSourire.jsx";
-import EpilationAuFil from "./components/pages/soins/EpilationAuFil.jsx";
-import EpilationALaCire from "./components/pages/soins/EpilationALaCire.jsx";
-import Maquillage from "./components/pages/soins/Maquillage.jsx";
-import SoinsDesMains from "./components/pages/soins/SoinsDesMains.jsx";
-import SoinsDesPieds from "./components/pages/soins/SoinsDesPieds.jsx";
-import SoinsDuCorps from "./components/pages/soins/SoinsDuCorps.jsx";
-import SoinsDuVisage from "./components/pages/soins/SoinsDuVisage.jsx";
-import VerniSemiPermanent from "./components/pages/soins/VerniSemiPermanent.jsx";
-import BeauteEnDuo from "./components/pages/soins/BeauteEnDuo.jsx";
+import Soins from "./components/pages/soins/Soins.jsx";
 import Soldes from "./components/pages/nosOffres/soldes/Soldes.jsx";
 import VentesPrivees from "./components/pages/nosOffres/ventesPrivees/VentesPrivees.jsx";
 import MentionsLegales from "./components/pages/MentionsLegales.jsx";
@@ -140,7 +129,7 @@ const App = () => {
             }
           />
           <Route
-            path="/soins/cryolipolyse"
+            path="/soins/:soinId"
             element={
               <motion.div
                 initial="initial"
@@ -149,7 +138,7 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <Cryolipolyse />
+                <Soins />
               </motion.div>
             }
           />
@@ -168,7 +157,7 @@ const App = () => {
             }
           />
           <Route
-            path="/soins/epilation-au-fil"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -177,12 +166,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <EpilationAuFil />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/beaute-en-duo"
+            path="/soins/:soinId"
             element={
               <motion.div
                 initial="initial"
@@ -191,12 +180,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <BeauteEnDuo />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/epilation-a-la-cire"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -205,12 +194,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <EpilationALaCire />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/beaute-du-regard"
+            path="/soins/:soinId"
             element={
               <motion.div
                 initial="initial"
@@ -219,12 +208,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <BeauteDuRegard />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/beaute-du-sourire"
+            path="/soins/:soinId"
             element={
               <motion.div
                 initial="initial"
@@ -233,12 +222,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <BeauteDuSourire />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/maquillage"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -247,12 +236,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <Maquillage />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/soins-des-mains"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -261,12 +250,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <SoinsDesMains />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/soins-des-pieds"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -275,12 +264,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <SoinsDesPieds />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/soins-du-corps"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -289,12 +278,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <SoinsDuCorps />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/soins-du-visage"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -303,12 +292,12 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <SoinsDuVisage />
+                <Soins />
               </motion.div>
             }
           />
           <Route
-            path="/soins/verni-semi-permanent"
+            path="/soins/soinId"
             element={
               <motion.div
                 initial="initial"
@@ -317,7 +306,7 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <VerniSemiPermanent />
+                <Soins />
               </motion.div>
             }
           />
