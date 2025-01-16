@@ -104,6 +104,17 @@ export const Text = styled.div`
   color: #dbdbdb;
   margin-bottom: 2rem;
   max-width: 1000px;
+  padding-left: 1.5rem;
+
+  a{
+    color:rgb(71, 172, 46);
+    margin: 0 10px;
+    font-weight: 600;
+  }
+
+  strong {
+    color: ${({ theme }) => theme.colors.primary || "#1a73e8"};
+  }
 
   .cat{
     color: #b68d2c;
@@ -115,7 +126,6 @@ export const Text = styled.div`
 
   ul {
     margin-top: 0.5rem;
-    padding-left: 1.5rem;
     list-style: none;
   }
 
@@ -164,7 +174,7 @@ export const Text = styled.div`
       }
     }
 
-    a.highlight-link {
+    /* a.highlight-link {
   text-decoration: none;
   font-weight: bold;
   color: #ffffff;
@@ -179,7 +189,9 @@ a.highlight-link span {
 
 a.highlight-link:hover {
   text-decoration: underline;
-}
+} */
+
+
 
   }
 `;
