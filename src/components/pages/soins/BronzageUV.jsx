@@ -44,8 +44,8 @@ const Bronzage = () => {
         </Header>
 
         <Content>
-        <InteractiveSection>
-          <InteractiveTitle onClick={() => setShowVideo(!showVideo)}>
+          <InteractiveSection>
+            <InteractiveTitle onClick={() => setShowVideo(!showVideo)}>
               Vidéos
             </InteractiveTitle>
             {showVideo && (
@@ -55,6 +55,7 @@ const Bronzage = () => {
                   controls
                   width="100%"
                   height="auto"
+                  muted
                 />
               </ResponsiveVideoContainer>
             )}

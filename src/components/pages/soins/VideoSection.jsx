@@ -22,6 +22,7 @@ const VideoSection = ({ title, videoUrls = [] }) => {
                                     controls
                                     width="100%"
                                     height="auto"
+                                    muted
                                 />
                             </ResponsiveVideoContainer>
                         ))
