@@ -3,7 +3,7 @@ import './NotreCentrePage.css';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { AiFillHome } from 'react-icons/ai';
 
-const NotreCentre = () => {
+const NotreCentrePage = () => {
   return (
     <div className="notre-centre-page">
       <header className="header">
@@ -64,4 +64,4 @@ const NotreCentre = () => {
   );
 };
 
-export default NotreCentre;
+export default NotreCentrePage;
