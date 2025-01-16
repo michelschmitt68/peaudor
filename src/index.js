@@ -9,25 +9,29 @@ import { GlobalStyle } from './theme/GlobalStyle';
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// Ignore ResizeObserver errors
+
 const ignoreResizeObserverError = (error) => {
-  if (error.message && error.message.includes('ResizeObserver loop completed')) {
+  // Vérifie si l'erreur existe et contient un message
+  if (error && error.message && error.message.includes('ResizeObserver loop completed')) {
     return true; // Ignore this error
   }
   return false; // Allow other errors
 };
 
+// Gère les erreurs globales
 window.addEventListener('error', (event) => {
-  if (ignoreResizeObserverError(event.error)) {
-    event.preventDefault();
+  if (event.error && ignoreResizeObserverError(event.error)) {
+    event.preventDefault(); // Empêche le comportement par défaut pour cette erreur
   }
 });
 
+// Gère les promesses rejetées non attrapées
 window.addEventListener('unhandledrejection', (event) => {
-  if (ignoreResizeObserverError(event.reason)) {
-    event.preventDefault();
+  if (event.reason && ignoreResizeObserverError(event.reason)) {
+    event.preventDefault(); // Empêche le comportement par défaut pour ce rejet
   }
 });
+
 
 root.render(
   <BrowserRouter>
