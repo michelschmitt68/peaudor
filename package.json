@@ -1,5 +1,6 @@
 {
   "name": "peaudor",
+  "homepage": "https://michelschmitt68.github.io/peaudor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "REACT_APP_HOME_PAGE=https://michelschmitt68.github.io/peaudor react-scripts build",    
+    "build": "react-scripts build",    
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
