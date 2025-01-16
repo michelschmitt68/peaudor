@@ -13,7 +13,7 @@ const ExpertsPage = () => {
     <PageContainer>
       <PageHeading>Nos expertes</PageHeading>
       <PageDescription>
-        Découvrez nos expertes en beauté et bien-être. Elles sont spécialisées dans divers domaines pour répondre à tous vos besoins.
+        Déacouvrez nos expertes en beauté et bien-être. Elles sont spécialisées dans divers domaines pour répondre à tous vos besoins.
       </PageDescription>
 
       <TeamGrid>
