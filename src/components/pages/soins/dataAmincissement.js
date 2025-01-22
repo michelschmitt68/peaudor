@@ -44,11 +44,11 @@ export const videos = [
     },
     {
       name: "Presso-esthétique (50min)",
-      price: "30€"
+      price: <><span className="info">à partir de </span>30€</>
     },
     {
       name: "Soin Corps Arosha + Presso-esthétique (1h)",
-      price: "69€"
+      price: <><span className="info">à partir de </span>69€</>
     },
     {
       name: "Remodelage musculaire (40min)",
