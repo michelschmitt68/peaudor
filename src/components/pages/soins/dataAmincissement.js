@@ -32,15 +32,15 @@ export const videos = [
     },
     {
       name: "Cryolipolyse 1 Aspiration (55min)",
-      price: price: <><span className="info">à partir de </span>100€</>
+      price: <><span className="info">à partir de </span>100€</>
     },
     {
       name: "Forfait Cryolipolyse 1 Aspiration + Presso-esthétique (la séance)",
-      price: price: <><span className="info">à partir de </span>106€</>
+      price: <><span className="info">à partir de </span>106€</>
     },
     {
       name: "Forfait 3 séances de Cryolipolyse 1 Aspiration + Presso-esthétique (1 séance par mois)",
-      price: price: <><span className="info">à partir de </span>290€</>
+      price: <><span className="info">à partir de </span>290€</>
     },
     {
       name: "Presso-esthétique (50min)",
@@ -52,7 +52,7 @@ export const videos = [
     },
     {
       name: "Remodelage musculaire (40min)",
-      price: price: <><span className="info">à partir de </span>40€</>
+      price: <><span className="info">à partir de </span>40€</>
     },
     {
       name: "Drainage lymphatique (Méthode Retana Franca, 1h 45min)",
