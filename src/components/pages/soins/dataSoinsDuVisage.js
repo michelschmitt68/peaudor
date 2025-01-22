@@ -17,6 +17,8 @@ export const title = [
     { name: "Soin Purifiant (1h15)", price: "63€" },
     { name: "Rituel Anti-Âge (1h15)", price: "78€" },
     { name: "Soin Peeling + Kit Entretien Maison", price: "99€" },
+    { name: "Luminothérapie LED", price: <><span className="info">à partir de </span>35€</> }
+    { name: "Supplément luminothérapie LED (combinaison soin visage)", price: "15€" }
   ];
   
   
