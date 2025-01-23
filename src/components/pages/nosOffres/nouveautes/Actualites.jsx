@@ -114,8 +114,9 @@ const Section = styled.section`
 
 const Title = styled.h2`
   color: ${({ theme }) => theme.colors.tertiary};
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   text-align: center;
+  font-size: 1.8rem;
 `;
 
 const TextWrapper = styled.div`
