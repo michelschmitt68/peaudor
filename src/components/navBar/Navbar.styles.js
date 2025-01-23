@@ -190,17 +190,20 @@ export const SubMenuMobile = styled.div`
   display: none;
   position: relative;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding:  10px 20px;
+  gap: 10px;
+  background-color:rgb(32, 32, 32);
 
   &.open {
     display: block;
     opacity: 1;
-    transform: translateY(0);
+
   }
 
   & a {
-    padding: 8px 16px;
+    padding: 10px 0;
     color: ${({ theme }) => theme.colors.primary};
     display: block;
   }
