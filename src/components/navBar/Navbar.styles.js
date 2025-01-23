@@ -101,7 +101,7 @@ export const SubMenu = styled.div`
   position: absolute;
   top: 30px;
   left: 0;
-  background-color: #272727;
+  background-color:rgb(29, 29, 29);
   border-radius: 5px;
   padding: 10px;
   z-index: 1;
@@ -194,7 +194,6 @@ export const SubMenuMobile = styled.div`
   margin-left: 10px;
   padding:  10px 20px;
   gap: 10px;
-  background-color:rgb(32, 32, 32);
 
   &.open {
     display: block;
