@@ -33,8 +33,63 @@ export const title = [
         • <strong>Rituel anti-âge :</strong> Ce soin est conçu pour combattre les signes du vieillissement. Il hydrate, raffermit et lisse la peau, tout en stimulant la production de collagène et d’élastine pour réduire les rides et redonner de la jeunesse à votre peau.<br />
         • <strong>Soin peeling :</strong> Le soin peeling exfolie en douceur la peau pour éliminer les cellules mortes et favoriser le renouvellement cellulaire. Il est idéal pour améliorer la texture de la peau, réduire les taches pigmentaires et affiner le grain de peau.
       `
+    },
+    {
+      question: "Qu’est-ce que la luminothérapie LED esthétique ?",
+      answer: `
+        La luminothérapie LED esthétique est une technologie qui utilise des lumières LED de différentes couleurs pour traiter la peau. Chaque couleur a une longueur d’onde spécifique qui cible des problèmes précis, comme les rides, l’acné ou les rougeurs, tout en stimulant la régénération cellulaire.
+      `
+    },
+    {
+      question: "Quels sont les bienfaits de la luminothérapie LED pour la peau ?",
+      answer: `
+        • Stimule la production de collagène et d’élastine (anti-âge).<br />
+        • Réduit les rides et ridules.<br />
+        • Diminue les imperfections, les boutons et l’acné.<br />
+        • Apaise les inflammations et les rougeurs.<br />
+        • Éclaircit et uniformise le teint.<br />
+        • Favorise la cicatrisation et la réparation de la peau.
+      `
+    },
+    {
+      question: "Est-ce que la luminothérapie LED est douloureuse ?",
+      answer: `
+        Non, la luminothérapie LED est totalement indolore. Elle ne chauffe pas et n’abîme pas la peau. C’est une méthode douce et non invasive, idéale pour tous les types de peau.
+      `
+    },
+    {
+      question: "Combien de séances faut-il pour voir des résultats ?",
+      answer: `
+        Les premiers résultats sont visibles dès 3 à 4 séances (peau plus lumineuse et apaisée). Pour des résultats optimaux, une cure de 6 à 10 séances est recommandée, à raison de 1 à 2 séances par semaine.
+      `
+    },
+    {
+      question: "Est-ce adapté à tous les types de peau ?",
+      answer: `
+        Oui, la luminothérapie LED est adaptée à tous les types de peau, même les plus sensibles. Elle est particulièrement efficace pour :<br />
+        • Les peaux acnéiques ou à imperfections.<br />
+        • Les peaux matures ou fatiguées.<br />
+        • Les peaux stressées ou déshydratées.
+      `
+    },
+    {
+      question: "Y a-t-il des contre-indications à la luminothérapie LED ?",
+      answer: `
+        La luminothérapie LED est sûre pour la plupart des personnes. Cependant, elle est déconseillée pour :<br />
+        • Les femmes enceintes ou allaitantes.<br />
+        • Les personnes souffrant d’épilepsie ou photosensibles.<br />
+        • Les personnes prenant des médicaments qui rendent la peau sensible à la lumière (photosensibilisants).<br />
+        Consultez un professionnel si vous avez des doutes.
+      `
+    },
+    {
+      question: "Combien de temps dure une séance de luminothérapie LED ?",
+      answer: `
+        Une séance de luminothérapie LED dure généralement entre 20 et 30 minutes. Elle peut être intégrée à un soin visage complet pour optimiser les ressources ou réalisée seule.
+      `
     }
   ];
+  
   
 
   //info 
