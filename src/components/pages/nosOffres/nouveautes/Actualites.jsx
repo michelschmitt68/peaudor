@@ -198,7 +198,7 @@ const MainTitle = styled.h1`
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
-  margin: 50px 0;
+  margin: 100px 0;
   border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
   @media (max-width: 768px) {
     font-size: 1rem;
