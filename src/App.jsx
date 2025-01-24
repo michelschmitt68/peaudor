@@ -13,6 +13,7 @@ import RendezVousPage from "./components/pages/rendezVous/RendezVousPage";
 import Soins from "./components/pages/soins/Soins.jsx";
 import BronzageUV from "./components/pages/soins/BronzageUV.jsx";
 import Actualites from "./components/pages/nosOffres/nouveautes/Actualites.jsx";
+import OffresDuMoment from "./components/pages/nosOffres/offres/OffresDuMoment.jsx"
 import Soldes from "./components/pages/nosOffres/soldes/Soldes.jsx";
 import VentesPrivees from "./components/pages/nosOffres/ventesPrivees/VentesPrivees.jsx";
 import MentionsLegales from "./components/pages/MentionsLegales.jsx";
@@ -326,7 +327,21 @@ const App = () => {
             }
           />
           <Route
-            path="/nos-soldes"
+            path="/offres-du-moment"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <OffresDuMoment />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/soldes"
             element={
               <motion.div
                 initial="initial"

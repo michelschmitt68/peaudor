@@ -64,31 +64,7 @@ const Actualites = () => {
         {/* Image en dessous */}
         <StyledImage src="/offres/actualites/luminotherapie.jpg" alt="Luminothérapie LED" />
       </Section>
-      <Section>
-        <Title>💌 Offre spéciale Saint-Valentin 💌</Title>
-        <TextWrapper>
-          <List>
-            <ListItem>-10% sur les chèques cadeaux**</ListItem>
-            <ListItem>-20% sur les massages duo**</ListItem>
-            <ListItem>
-              Massage harmonie duo 30 min 72€ au lieu de 90€**
-            </ListItem>
-            <ListItem>
-              Massage harmonie suprême duo 45 min 88€ au lieu de 110€**
-            </ListItem>
-            <ListItem>
-              -20% sur les blanchiments dentaires en duo 120€ les deux séances au lieu de 150€**
-            </ListItem>
-          </List>
-          <Paragraph>
-            <Highlight>*Offre valable du 01/02/2025 au 28/02/2025</Highlight>
-          </Paragraph>
-          <Paragraph>
-            <Highlight>**Offre non cumulable avec d’autres promotions en cours</Highlight>
-          </Paragraph>
-        </TextWrapper>
-        <StyledImage src="/offres/actualites/saint_valentin.png" alt="Luminothérapie LED" />
-      </Section>
+
 
     </Container>
   );

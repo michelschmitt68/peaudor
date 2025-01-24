@@ -9,14 +9,16 @@ const NavBar = () => {
   const [subMenus, setSubMenus] = useState({
     soins: false,
     actus: false,
-    offres: false,
   });
 
-  const toggleSubMenu = (menu) => {
-    setSubMenus((prev) => ({
-      ...prev,
-      [menu]: !prev[menu],
-    }));
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+    if (!menuOpen) {
+      setSubMenus({
+        soins: false,
+        actus: false,
+      });
+    }
   };
 
   const closeMenu = () => {
@@ -24,8 +26,14 @@ const NavBar = () => {
     setSubMenus({
       soins: false,
       actus: false,
-      offres: false,
     });
+  };
+
+  const toggleSubMenu = (menu) => {
+    setSubMenus((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
+    }));
   };
 
   const categories = [
@@ -53,7 +61,7 @@ const NavBar = () => {
           </S.StyledLogoLink>
         </S.Logo>
 
-        <S.Hamburger onClick={() => setMenuOpen((prev) => !prev)}>
+        <S.Hamburger onClick={toggleMenu}>
           <GiHamburgerMenu size={24} />
         </S.Hamburger>
         {menuOpen && (
@@ -75,6 +83,8 @@ const NavBar = () => {
                 ))}
               </S.SubMenuMobile>
             </S.MenuItem>
+
+
             <S.MenuItem onClick={() => toggleSubMenu("actus")}>
               Nos Actualités
               <S.SubMenuMobile className={subMenus.actus ? "open" : ""}>
@@ -86,25 +96,34 @@ const NavBar = () => {
                     Nouveautés
                   </S.StyledNavLinkStyled>
                 </S.MenuItem>
-                <S.MenuItem onClick={() => { toggleSubMenu("offres"); toggleSubMenu("actus"); }}>
-                  Nos Offres
-                  <S.SubMenuMobile className={subMenus.offres ? "open" : ""}>
-                    <S.StyledNavLinkStyled
-                      to="/nos-soldes"
-                      onClick={closeMenu}
-                    >
-                      Soldes
-                    </S.StyledNavLinkStyled>
-                    <S.StyledNavLinkStyled
-                      to="/ventes-privees"
-                      onClick={closeMenu}
-                    >
-                      Ventes Privées
-                    </S.StyledNavLinkStyled>
-                  </S.SubMenuMobile>
+
+                <S.MenuItem>
+                  <S.StyledNavLinkStyled
+                    to="/offres-du-moment"
+                    onClick={closeMenu}
+                  >
+                    Offres du moment
+                  </S.StyledNavLinkStyled>
+                </S.MenuItem>
+                <S.MenuItem>
+                  <S.StyledNavLinkStyled
+                    to="/soldes"
+                    onClick={closeMenu}
+                  >
+                    Soldes
+                  </S.StyledNavLinkStyled>
+                </S.MenuItem>
+                <S.MenuItem>
+                  <S.StyledNavLinkStyled
+                    to="/ventes-privees"
+                    onClick={closeMenu}
+                  >
+                    Ventes privées
+                  </S.StyledNavLinkStyled>
                 </S.MenuItem>
               </S.SubMenuMobile>
             </S.MenuItem>
+
 
             {/* Autres éléments du menu */}
             <S.MenuItem>
@@ -172,22 +191,24 @@ const NavBar = () => {
               ))}
             </S.SubMenu>
           </S.MenuItem>
+
+
+
+
           <S.MenuItem>
             Nos Actualités
             <S.SubMenu>
               {/* Nouveautés */}
               <S.StyledNavLinkStyled to="/actualites">Nouveautés</S.StyledNavLinkStyled>
-
-              {/* Nos Offres */}
-              <S.MenuItem>
-                Nos Offres
-                <S.SubMenu>
-                  <S.StyledNavLinkStyled to="/nos-soldes">Soldes</S.StyledNavLinkStyled>
-                  <S.StyledNavLinkStyled to="/ventes-privees">Ventes Privées</S.StyledNavLinkStyled>
-                </S.SubMenu>
-              </S.MenuItem>
+              <S.StyledNavLinkStyled to="/offres-du-moment">Offres du moment</S.StyledNavLinkStyled>
+              <S.StyledNavLinkStyled to="/soldes">Soldes</S.StyledNavLinkStyled>
+              <S.StyledNavLinkStyled to="/ventes-privees">Ventes privées</S.StyledNavLinkStyled>
             </S.SubMenu>
           </S.MenuItem>
+
+
+
+
           <S.MenuItem>
             <S.StyledNavLinkStyled to="/notre-centre">Notre Centre</S.StyledNavLinkStyled>
           </S.MenuItem>
