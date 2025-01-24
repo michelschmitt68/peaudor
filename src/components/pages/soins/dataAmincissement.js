@@ -32,27 +32,27 @@ export const videos = [
     },
     {
       name: "Cryolipolyse 1 Aspiration (55min)",
-      price: "à partir de 100€"
+      price: <><span className="info">à partir de </span>100€</>
     },
     {
       name: "Forfait Cryolipolyse 1 Aspiration + Presso-esthétique (la séance)",
-      price: "à partir de 106€"
+      price: <><span className="info">à partir de </span>106€</>
     },
     {
       name: "Forfait 3 séances de Cryolipolyse 1 Aspiration + Presso-esthétique (1 séance par mois)",
-      price: "à partir de 290€"
+      price: <><span className="info">à partir de </span>290€</>
     },
     {
       name: "Presso-esthétique (50min)",
-      price: "30€"
+      price: <><span className="info">à partir de </span>30€</>
     },
     {
       name: "Soin Corps Arosha + Presso-esthétique (1h)",
-      price: "69€"
+      price: <><span className="info">à partir de </span>69€</>
     },
     {
       name: "Remodelage musculaire (40min)",
-      price: "à partir de 40€"
+      price: <><span className="info">à partir de </span>40€</>
     },
     {
       name: "Drainage lymphatique (Méthode Retana Franca, 1h 45min)",

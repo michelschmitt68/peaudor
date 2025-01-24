@@ -12,6 +12,7 @@ import MonCompte from "./components/pages/monCompte/MonComptePage";
 import RendezVousPage from "./components/pages/rendezVous/RendezVousPage";
 import Soins from "./components/pages/soins/Soins.jsx";
 import BronzageUV from "./components/pages/soins/BronzageUV.jsx";
+import Actualites from "./components/pages/nosOffres/nouveautes/Actualites.jsx";
 import Soldes from "./components/pages/nosOffres/soldes/Soldes.jsx";
 import VentesPrivees from "./components/pages/nosOffres/ventesPrivees/VentesPrivees.jsx";
 import MentionsLegales from "./components/pages/MentionsLegales.jsx";
@@ -307,6 +308,20 @@ const App = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <Soins />
+              </motion.div>
+            }
+          />
+          <Route
+            path="/actualites"
+            element={
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <Actualites />
               </motion.div>
             }
           />

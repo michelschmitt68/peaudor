@@ -76,10 +76,17 @@ const NavBar = () => {
               </S.SubMenuMobile>
             </S.MenuItem>
             <S.MenuItem onClick={() => toggleSubMenu("actus")}>
-              Nos Actus
+              Nos Actualités
               <S.SubMenuMobile className={subMenus.actus ? "open" : ""}>
+                <S.MenuItem>
+                  <S.StyledNavLinkStyled
+                    to="/actualites"
+                    onClick={closeMenu}
+                  >
+                    Nouveautés
+                  </S.StyledNavLinkStyled>
+                </S.MenuItem>
                 <S.MenuItem onClick={() => { toggleSubMenu("offres"); toggleSubMenu("actus"); }}>
-
                   Nos Offres
                   <S.SubMenuMobile className={subMenus.offres ? "open" : ""}>
                     <S.StyledNavLinkStyled
@@ -166,8 +173,12 @@ const NavBar = () => {
             </S.SubMenu>
           </S.MenuItem>
           <S.MenuItem>
-            Nos Actus
+            Nos Actualités
             <S.SubMenu>
+              {/* Nouveautés */}
+              <S.StyledNavLinkStyled to="/actualites">Nouveautés</S.StyledNavLinkStyled>
+
+              {/* Nos Offres */}
               <S.MenuItem>
                 Nos Offres
                 <S.SubMenu>
