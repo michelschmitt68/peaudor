@@ -65,16 +65,16 @@ const AboutSection = () => {
 
       {/* Animation de l'image */}
       <ImageWrapper
-          initial={{ opacity: 0, x: "-20%" }}  
-          whileInView={{ opacity: 1, x: 0 }}   
-          transition={{
-            delay: 1,
+        initial={{ opacity: 0, x: "-20%" }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          delay: 1,
           duration: 1,
           ease: "easeOut",
         }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <Image src="/about.webp" alt="Intérieur du centre de beauté" />
+        <Image src="/home.jpeg" alt="Intérieur du centre de beauté" />
       </ImageWrapper>
     </Section>
   );
@@ -88,22 +88,28 @@ const Section = styled.section`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 10rem;
+  padding: 5rem;
   width: 100%;
+  gap: 5rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     flex-direction: column; /* Change la direction pour les petits écrans (mobile/tablette) */
     padding: 3rem 1rem;
+    gap: 1rem;
   }
 
   @media (max-width: 768px) {
     padding: 2rem; /* Moins de padding sur les écrans très petits */
   }
+  @media (max-width: 500px) {
+    max-width: 400px;
+    padding: 0.1rem;
+  }
 `;
 
 const Content = styled.div`
   flex: 1;
-  max-width: 700px; /* Plus large pour le contenu */
+  max-width: 800px; /* Plus large pour le contenu */
   padding: 1.5rem;
 
   @media (max-width: 1024px) {
@@ -136,8 +142,12 @@ const Heading = styled.h2`
   line-height: 1.3;
   text-align: left;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     text-align: center;
+    margin-bottom: 5rem;
+  }
+  @media (max-width: 500px) {
+    margin-top: 5rem;
   }
 `;
 
@@ -154,13 +164,16 @@ const Description = styled.p`
 
 const ImageWrapper = styled(motion.div)`
   flex: 1;
-  max-width: 700px; /* Limite la largeur maximale de l'image à la même largeur que le texte */
+  max-width: 1200px; /* Limite la largeur maximale de l'image à la même largeur que le texte */
   padding: 1.5rem;
   margin-top: 2rem; /* Espace entre le texte et l'image */
 
-  @media (max-width: 1024px) {
-    max-width: 700px; /* Sur tablette, l'image peut prendre 100% de la largeur disponible */
-    padding: 0;
+  @media (max-width: 1200px) {
+    padding: 5rem;
+    margin-top: 0;
+  }
+  @media (max-width: 768px) {
+    padding: 0rem;
   }
 `;
 
@@ -173,5 +186,8 @@ const Image = styled.img`
   @media (max-width: 1024px) {
     max-width: 100%; /* L'image prend toute la largeur disponible, mais est limitée à la largeur du texte */
     margin-bottom: 1.5rem;
+  }
+  @media (max-width: 500px) {
+    margin-bottom: 5rem;
   }
 `;
