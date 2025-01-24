@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as S from "./Navbar.styles";
+import { useAuth } from "../../context/AuthContext"; // Importation du hook useAuth
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,6 +11,9 @@ const NavBar = () => {
     soins: false,
     actus: false,
   });
+
+  const { user, logout } = useAuth(); // Utilisation du hook useAuth pour accéder à l'état utilisateur
+  const navigate = useNavigate(); // Utilisé pour rediriger après la déconnexion
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -52,6 +56,11 @@ const NavBar = () => {
     { title: "Vernis semi permanent", link: "/soins/verni-semi-permanent" },
   ];
 
+  const handleLogout = async () => {
+    await logout(); // Appel à la fonction logout du contexte
+    navigate("/"); // Redirection vers la page d'accueil
+  };
+
   return (
     <S.Nav>
       <S.Container>
@@ -84,7 +93,7 @@ const NavBar = () => {
               </S.SubMenuMobile>
             </S.MenuItem>
 
-
+            {/* Nos actualités */}
             <S.MenuItem onClick={() => toggleSubMenu("actus")}>
               Nos Actualités
               <S.SubMenuMobile className={subMenus.actus ? "open" : ""}>
@@ -124,29 +133,19 @@ const NavBar = () => {
               </S.SubMenuMobile>
             </S.MenuItem>
 
-
             {/* Autres éléments du menu */}
             <S.MenuItem>
-              <S.StyledNavLinkStyled
-                to="/notre-centre"
-                onClick={closeMenu}
-              >
+              <S.StyledNavLinkStyled to="/notre-centre" onClick={closeMenu}>
                 Notre Centre
               </S.StyledNavLinkStyled>
             </S.MenuItem>
             <S.MenuItem>
-              <S.StyledNavLinkStyled
-                to="/cheques-cadeaux"
-                onClick={closeMenu}
-              >
+              <S.StyledNavLinkStyled to="/cheques-cadeaux" onClick={closeMenu}>
                 Chèques Cadeaux
               </S.StyledNavLinkStyled>
             </S.MenuItem>
             <S.MenuItem>
-              <S.StyledNavLinkStyled
-                to="/nos-produits"
-                onClick={closeMenu}
-              >
+              <S.StyledNavLinkStyled to="/nos-produits" onClick={closeMenu}>
                 Nos Produits
               </S.StyledNavLinkStyled>
             </S.MenuItem>
@@ -164,6 +163,9 @@ const NavBar = () => {
             <S.ButtonSection>
               <S.Button as={NavLink} to="/rendez-vous" onClick={closeMenu}>Rendez-vous</S.Button>
               <S.Button as={NavLink} to="/mon-compte" onClick={closeMenu}>Mon compte</S.Button>
+              {user && (
+                <S.Button onClick={handleLogout}>Déconnexion</S.Button>
+              )}
             </S.ButtonSection>
 
             {/* Icônes des réseaux sociaux */}
@@ -178,7 +180,6 @@ const NavBar = () => {
           </S.Menu>
         )}
 
-
         {/* Desktop Menu */}
         <S.DesktopMenu>
           <S.MenuItem>
@@ -192,22 +193,15 @@ const NavBar = () => {
             </S.SubMenu>
           </S.MenuItem>
 
-
-
-
           <S.MenuItem>
             Nos Actualités
             <S.SubMenu>
-              {/* Nouveautés */}
               <S.StyledNavLinkStyled to="/actualites">Nouveautés</S.StyledNavLinkStyled>
               <S.StyledNavLinkStyled to="/offres-du-moment">Offres du moment</S.StyledNavLinkStyled>
               <S.StyledNavLinkStyled to="/soldes">Soldes</S.StyledNavLinkStyled>
               <S.StyledNavLinkStyled to="/ventes-privees">Ventes privées</S.StyledNavLinkStyled>
             </S.SubMenu>
           </S.MenuItem>
-
-
-
 
           <S.MenuItem>
             <S.StyledNavLinkStyled to="/notre-centre">Notre Centre</S.StyledNavLinkStyled>
@@ -226,10 +220,15 @@ const NavBar = () => {
               Parrainage
             </S.StyledNavLinkStyled>
           </S.MenuItem>
+
           <S.ButtonSection>
             <S.Button as={NavLink} to="/rendez-vous">Rendez-vous</S.Button>
             <S.Button as={NavLink} to="/mon-compte">Mon compte</S.Button>
+            {user && (
+              <S.Button onClick={handleLogout}>Déconnexion</S.Button>
+            )}
           </S.ButtonSection>
+
           <S.IconSection>
             <S.Icon href="https://www.facebook.com/peaudor68320/" target="_blank" aria-label="Facebook">
               <FaFacebook size={20} />
