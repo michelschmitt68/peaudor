@@ -1,7 +1,12 @@
-export const title = [
-    "Soins du Corps"
-  ];
 
+
+  export const title = [
+      "Soins du Corps"
+    ];
+
+  export const videos = [
+    "/Soins/videos/Massage_japonais.mp4",
+  ];
 
   export const description = [
     `Découvrez nos soins du corps spécialisés pour une relaxation complète 
