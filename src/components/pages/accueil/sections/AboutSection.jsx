@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion"; // Import framer-motion
 
 const AboutSection = () => {
   const title = "À propos de notre centre";
@@ -8,72 +7,20 @@ const AboutSection = () => {
   return (
     <Section>
       <Content>
-        {/* Animation du titre lettre par lettre */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-          }}
-          viewport={{
-            once: true,
-            margin: "-30% 0px",
-          }}
-        >
-          <Heading>
-            {title.split("").map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  delay: index * 0.07,
-                  duration: 0.07,
-                }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </Heading>
-        </motion.div>
-
-        {/* Animation du paragraphe */}
-        <motion.div
-          initial={{ opacity: 0, x: "-20%" }}  // Légère déviation en dehors de la vue
-          whileInView={{ opacity: 1, x: 0 }}   // Fait apparaître le texte de manière fluide
-          transition={{
-            delay: 0.5,
-            duration: 1,
-            ease: "easeOut",
-          }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <Description>
-            Bienvenue dans notre institut de beauté, un lieu dédié au bien-être et à la sérénité.
-            Depuis notre ouverture, nous avons pour mission de vous offrir des soins de qualité,
-            adaptés à vos besoins, dans une ambiance chaleureuse et relaxante.
-          </Description>
-          <Description>
-            Nos experts en beauté et bien-être sont là pour vous accompagner dans votre quête de détente et de raffinement.
-            Que ce soit pour un soin du visage, un massage relaxant, ou une manucure, nous mettons tout en œuvre
-            pour que chaque moment passé dans notre institut soit inoubliable.
-          </Description>
-          <Button href="/notre-centre">Retrouvez nous</Button>
-        </motion.div>
+        <Heading>{title}</Heading>
+        <Description>
+          Bienvenue dans notre institut de beauté, un lieu dédié au bien-être et à la sérénité.
+          Depuis notre ouverture, nous avons pour mission de vous offrir des soins de qualité,
+          adaptés à vos besoins, dans une ambiance chaleureuse et relaxante.
+        </Description>
+        <Description>
+          Nos experts en beauté et bien-être sont là pour vous accompagner dans votre quête de détente et de raffinement.
+          Que ce soit pour un soin du visage, un massage relaxant, ou une manucure, nous mettons tout en œuvre
+          pour que chaque moment passé dans notre institut soit inoubliable.
+        </Description>
+        <Button href="/notre-centre">Retrouvez nous</Button>
       </Content>
-
-      {/* Animation de l'image */}
-      <ImageWrapper
-        initial={{ opacity: 0, x: "-20%" }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{
-          delay: 1,
-          duration: 1,
-          ease: "easeOut",
-        }}
-        viewport={{ once: true, amount: 0.5 }}
-      >
+      <ImageWrapper>
         <Image src="/home.jpeg" alt="Intérieur du centre de beauté" />
       </ImageWrapper>
     </Section>
@@ -93,26 +40,27 @@ const Section = styled.section`
   gap: 5rem;
 
   @media (max-width: 1200px) {
-    flex-direction: column; /* Change la direction pour les petits écrans (mobile/tablette) */
+    flex-direction: column;
     padding: 3rem 1rem;
     gap: 1rem;
   }
 
   @media (max-width: 768px) {
-    padding: 2rem; /* Moins de padding sur les écrans très petits */
+    padding: 2rem;
   }
+
   @media (max-width: 500px) {
     max-width: 400px;
-    padding: 0.1rem;
+    padding: 1rem;
   }
 `;
 
 const Content = styled.div`
   flex: 1;
-  max-width: 800px; /* Plus large pour le contenu */
+  max-width: 800px;
   padding: 1.5rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     text-align: center;
   }
 `;
@@ -126,8 +74,9 @@ const Button = styled.a`
   font-weight: bold;
   text-decoration: none;
   border-radius: 30px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
   cursor: pointer;
+  margin: 2rem 0;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary || "#e3c29b"};
@@ -140,14 +89,15 @@ const Heading = styled.h2`
   margin-bottom: 3rem;
   font-weight: bold;
   line-height: 1.3;
-  text-align: left;
 
   @media (max-width: 1200px) {
     text-align: center;
     margin-bottom: 5rem;
   }
+
   @media (max-width: 500px) {
     margin-top: 5rem;
+    font-size: 25px;
   }
 `;
 
@@ -156,22 +106,19 @@ const Description = styled.p`
   line-height: 1.8;
   color: ${({ theme }) => theme.colors.white || "#d9d9d9"};
   margin-bottom: 1.5rem;
-
-  @media (max-width: 1024px) {
-    text-align: justify;
-  }
+  text-align: left;
 `;
 
-const ImageWrapper = styled(motion.div)`
+const ImageWrapper = styled.div`
   flex: 1;
-  max-width: 1200px; /* Limite la largeur maximale de l'image à la même largeur que le texte */
+  max-width: 1200px;
   padding: 1.5rem;
-  margin-top: 2rem; /* Espace entre le texte et l'image */
+  margin-top: 2rem;
 
   @media (max-width: 1200px) {
-    padding: 5rem;
     margin-top: 0;
   }
+
   @media (max-width: 768px) {
     padding: 0rem;
   }
@@ -184,9 +131,9 @@ const Image = styled.img`
   object-fit: cover;
 
   @media (max-width: 1024px) {
-    max-width: 100%; /* L'image prend toute la largeur disponible, mais est limitée à la largeur du texte */
     margin-bottom: 1.5rem;
   }
+
   @media (max-width: 500px) {
     margin-bottom: 5rem;
   }

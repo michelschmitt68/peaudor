@@ -20,8 +20,8 @@ const ProductsSection = () => {
         <Content>
           <Title>Découvrez nos produits exclusifs</Title>
           <Description>
-            Explorez notre gamme de produits de beauté soigneusement sélectionnés 
-            pour prendre soin de votre peau et révéler votre éclat naturel. 
+            Explorez notre gamme de produits de beauté soigneusement sélectionnés
+            pour prendre soin de votre peau et révéler votre éclat naturel.
             Qualité et bien-être au cœur de notre engagement.
           </Description>
           <Button href="nos-produits">Voir nos produits</Button>
@@ -45,7 +45,7 @@ const zoomAnimation = keyframes`
 
 const MotionSection = styled(motion.section)`
   position: relative;
-  height: 800px;
+  height: 1000px;
   margin-top: 100px;
   display: flex;
   align-items: center;

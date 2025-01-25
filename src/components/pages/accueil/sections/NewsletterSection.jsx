@@ -33,6 +33,7 @@ const Section = styled.section`
   align-items: center;
   margin-top: 50px;
   padding: 4rem 2rem;
+  height: 1000px;
   color: ${({ theme }) => theme.colors.text || "#333"};
   
   &::before {

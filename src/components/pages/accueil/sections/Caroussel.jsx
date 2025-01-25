@@ -48,7 +48,7 @@ const StyledImage = styled.img`
   object-position: top;
 
   @media (max-width: 768px) {
-    height: 300px;
+    height: 400px;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {

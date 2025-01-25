@@ -3,42 +3,42 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const PromotionsSection = () => {
-    return (
-        <MotionSection
-            initial={{ opacity: 0, y: 50 }} // Partie invisible et en bas
-            whileInView={{ opacity: 1, y: 0 }} // Apparaît en montant
-            transition={{
-                duration: 1, // Durée de l'animation
-                ease: "easeOut",
-            }}
-            viewport={{
-                once: true, // L'animation ne se rejoue pas
-                margin: "-20%", // Détecte avant d'entrer complètement
-            }}
-        >
-            <Overlay>
-                <Content>
-                    <Title>Profitez de nos promotions exclusives</Title>
-                    <Description>
-                        Découvrez des offres exceptionnelles sur une sélection d'articles !
-                        Profitez de nos ventes privées et de nos soldes pour faire de
-                        bonnes affaires. Ne manquez pas ces opportunités !
-                    </Description>
-                    <ButtonContainer>
-                        <AnimatedButton href="ventes-privees">Ventes Privées</AnimatedButton>
-                        <AnimatedButton href="nos-soldes">Soldes</AnimatedButton>
-                    </ButtonContainer>
-                </Content>
-            </Overlay>
-        </MotionSection>
-    );
+  return (
+    <MotionSection
+      initial={{ opacity: 0, y: 50 }} // Partie invisible et en bas
+      whileInView={{ opacity: 1, y: 0 }} // Apparaît en montant
+      transition={{
+        duration: 1, // Durée de l'animation
+        ease: "easeOut",
+      }}
+      viewport={{
+        once: true, // L'animation ne se rejoue pas
+        margin: "-20%", // Détecte avant d'entrer complètement
+      }}
+    >
+      <Overlay>
+        <Content>
+          <Title>Profitez de nos promotions exclusives</Title>
+          <Description>
+            Découvrez des offres exceptionnelles sur une sélection d'articles !
+            Profitez de nos ventes privées et de nos soldes pour faire de
+            bonnes affaires. Ne manquez pas ces opportunités !
+          </Description>
+          <ButtonContainer>
+            <AnimatedButton href="ventes-privees">Ventes Privées</AnimatedButton>
+            <AnimatedButton href="nos-soldes">Soldes</AnimatedButton>
+          </ButtonContainer>
+        </Content>
+      </Overlay>
+    </MotionSection>
+  );
 };
 
 export default PromotionsSection;
 
 const MotionSection = styled(motion.section)`
   position: relative;
-  height: 800px;
+  height: 900px;
   margin-top: 100px;
   display: flex;
   align-items: center;

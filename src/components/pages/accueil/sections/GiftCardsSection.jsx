@@ -41,7 +41,7 @@ const Section = styled.section`
   padding: 5rem 2rem;
   color: white;
   text-align: left; /* Aligne le texte à gauche */
-  height: 700px; /* Hauteur modérée pour ne pas prendre trop de place */
+  height: 900px; /* Hauteur modérée pour ne pas prendre trop de place */
   width: 100%; /* Prend toute la largeur de la page */
   background-image: url("/chequecadeau.jpg");
   background-size: cover;
