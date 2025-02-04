@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { getTeam } from "../../../api/team";
 
+
 const NosExpertes = () => {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
+
     const fetchTeamData = async () => {
       const teamData = await getTeam();
       if (teamData && teamData.members) {

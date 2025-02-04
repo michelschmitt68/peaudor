@@ -19,7 +19,7 @@ import CGV from "./components/pages/CGV.jsx";
 import LoginPage from "./components/pages/admin/LoginPage.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import NosExpertesAdmin from "./components/pages/admin/NosExpertesAdmin.jsx";
-import NotreCentreAdmin from "./components/pages/admin/NotreCentreAdmin.jsx";
+import NotreCentreAdmin from "./components/admin/NotreCentreAdmin.jsx";
 import SoinsAdmin from "./components/pages/admin/Soins/SoinsAdmin.jsx";
 
 const pageVariants = {

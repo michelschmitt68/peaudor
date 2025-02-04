@@ -185,3 +185,27 @@
   color: #C0A667; /* Couleur dorée */
   margin: 0;
 }
+
+.edit-btn, .save-btn {
+  background-color: #4CAF50; /* Vert */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  margin: 10px auto;
+}
+
+/* Style du textarea de la description */
+.description-input {
+  width: 100%;
+  height: 800px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+}
