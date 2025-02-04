@@ -1,4 +1,3 @@
-// TarifsSection.jsx
 import React, { useState } from "react";
 import { InteractiveSection, InteractiveTitle, Text, Separator } from "./SharedStyles";
 
@@ -16,11 +15,18 @@ const TarifsSection = ({ title, tarifs }) => {
                     <ul>
                         {tarifs.map((tarif, index) => (
                             <li key={index}>
-                                {tarif.name}
+                                <div className="tarif-name">
+                                    <span dangerouslySetInnerHTML={{ __html: tarif.name }} />
+                                </div>
                                 <div className="details-container">
-                                    <span className="price">{tarif.price}</span>
+                                    <span className="price" dangerouslySetInnerHTML={{ __html: tarif.price }} />
                                     {tarif.link && (
-                                        <a href={tarif.link} target="_blank" rel="noopener noreferrer" className="view-link">
+                                        <a
+                                            href={tarif.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="view-link"
+                                        >
                                             Voir
                                         </a>
                                     )}

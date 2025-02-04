@@ -35,6 +35,17 @@ export const Content = styled.div`
   color: #000;
 `;
 
+export const Button = styled.button`
+    background-color: #4CAF50;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+`;
+
 export const Container = styled.div`
   max-width: 1400px;
   padding: 5rem;

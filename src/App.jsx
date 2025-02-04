@@ -20,6 +20,7 @@ import LoginPage from "./components/pages/admin/LoginPage.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import NosExpertesAdmin from "./components/pages/admin/NosExpertesAdmin.jsx";
 import NotreCentreAdmin from "./components/pages/admin/NotreCentreAdmin.jsx";
+import SoinsAdmin from "./components/pages/admin/Soins/SoinsAdmin.jsx";
 
 const pageVariants = {
   initial: { opacity: 0, x: "100%" },
@@ -91,6 +92,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <NosExpertesAdmin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <SoinsAdmin />
               </ProtectedRoute>
             }
           />
@@ -178,7 +187,7 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <Soins />
+                {user ? <SoinsAdmin /> : <Soins />}
               </motion.div>
             }
           />

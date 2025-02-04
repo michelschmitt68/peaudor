@@ -15,16 +15,3 @@ export const title = [
       price: "25€"
     },
   ];
-  
-
-  
-  
-  
-
-  //info 
-  // balises <strong>monTexte</strong> : en gras et en doré
-  // balises <br /> : Saut a la ligne
-
-  
-  
-  

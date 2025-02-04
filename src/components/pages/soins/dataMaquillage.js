@@ -33,15 +33,6 @@ export const title = [
       answer: "Non, le maquillage complet ne comprend pas les faux-cils, mais ils peuvent être ajoutés en option moyennant un coût supplémentaire."
     }
   ];
-  
-  
-  
-  
-
-  //info 
-  // balises <strong>monTexte</strong> : en gras et en doré
-  // balises <br /> : Saut a la ligne
-  //<span className="info">monTexte</span> : en petit et gris
 
   
   

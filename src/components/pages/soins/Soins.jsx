@@ -1,34 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../../api/firebase-config"; // Import de Firebase
 import { PageContainer, Container, Content, Header, Title } from "./SharedStyles";
 import VideoSection from "./VideoSection";
 import DescriptionSection from "./DescriptionSection";
 import TarifsSection from "./TarifsSection";
 import QuestionsSection from "./QuestionsSection";
-import { soinsData } from "./SoinsData";
 
 const Soins = () => {
-    const { soinId } = useParams();
+    const { soinId } = useParams(); // Récupère l'ID depuis l'URL
     const [data, setData] = useState({});
-    console.log(soinId);
-    console.log(data);
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Vérifier si soinId existe dans soinsData et charger les données correspondantes
-        if (soinsData[soinId]) {
-            setData(soinsData[soinId]); // Charger les données correspondant à soinId
-        } else {
-            // Si l'ID du soin n'est pas trouvé, définir un message d'erreur ou une valeur par défaut
-            setData({
-                title: "Soin introuvable",
-                description: ["Aucune donnée disponible pour ce soin."],
-                videos: [],
-                tarifs: [],
-                questions: []
-            });
-        }
-    }, [soinId]); // Récupérer de nouvelles données à chaque fois que soinId change
+        const fetchData = async () => {
+            setLoading(true);
+            setError(null);
+
+            try {
+                const docRef = doc(db, "categories", soinId); // Référence Firestore
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    setData(docSnap.data()); // Met à jour l'état avec les données Firestore
+                } else {
+                    setData({
+                        title: "Soin introuvable",
+                        description: ["Aucune donnée disponible pour ce soin."],
+                        videos: [],
+                        tarifs: [],
+                        questions: []
+                    });
+                }
+            } catch (error) {
+                setError("Erreur lors de la récupération des données.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [soinId]); // Exécuter lorsque `soinId` change
+
+    if (loading) {
+        return <div>Chargement...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
 
     return (
         <PageContainer>
