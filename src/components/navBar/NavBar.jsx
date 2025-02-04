@@ -114,22 +114,6 @@ const NavBar = () => {
                     Offres du moment
                   </S.StyledNavLinkStyled>
                 </S.MenuItem>
-                <S.MenuItem>
-                  <S.StyledNavLinkStyled
-                    to="/soldes"
-                    onClick={closeMenu}
-                  >
-                    Soldes
-                  </S.StyledNavLinkStyled>
-                </S.MenuItem>
-                <S.MenuItem>
-                  <S.StyledNavLinkStyled
-                    to="/ventes-privees"
-                    onClick={closeMenu}
-                  >
-                    Ventes privées
-                  </S.StyledNavLinkStyled>
-                </S.MenuItem>
               </S.SubMenuMobile>
             </S.MenuItem>
 
@@ -198,8 +182,6 @@ const NavBar = () => {
             <S.SubMenu>
               <S.StyledNavLinkStyled to="/actualites">Nouveautés</S.StyledNavLinkStyled>
               <S.StyledNavLinkStyled to="/offres-du-moment">Offres du moment</S.StyledNavLinkStyled>
-              <S.StyledNavLinkStyled to="/soldes">Soldes</S.StyledNavLinkStyled>
-              <S.StyledNavLinkStyled to="/ventes-privees">Ventes privées</S.StyledNavLinkStyled>
             </S.SubMenu>
           </S.MenuItem>
 

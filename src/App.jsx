@@ -14,8 +14,6 @@ import Soins from "./components/pages/soins/Soins.jsx";
 import BronzageUV from "./components/pages/soins/BronzageUV.jsx";
 import Actualites from "./components/pages/nosOffres/nouveautes/Actualites.jsx";
 import OffresDuMoment from "./components/pages/nosOffres/offres/OffresDuMoment.jsx";
-import Soldes from "./components/pages/nosOffres/soldes/Soldes.jsx";
-import VentesPrivees from "./components/pages/nosOffres/ventesPrivees/VentesPrivees.jsx";
 import MentionsLegales from "./components/pages/MentionsLegales.jsx";
 import CGV from "./components/pages/CGV.jsx";
 import LoginPage from "./components/pages/admin/LoginPage.js";
@@ -223,34 +221,6 @@ const App = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <OffresDuMoment />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/soldes"
-            element={
-              <motion.div
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                variants={pageVariants}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-                <Soldes />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/ventes-privees"
-            element={
-              <motion.div
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                variants={pageVariants}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-                <VentesPrivees />
               </motion.div>
             }
           />
