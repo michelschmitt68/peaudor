@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FaBullhorn } from 'react-icons/fa';
+import { collection, getDocs } from 'firebase/firestore';  // Assure-toi d'importer correctement Firestore
+import { db } from '../../../../api/firebase-config'
 
 const Actualites = () => {
+  const [actualites, setActualites] = useState([]);
+
+  useEffect(() => {
+    // Fonction pour récupérer les données depuis Firestore
+    const fetchActualites = async () => {
+      const querySnapshot = await getDocs(collection(db, 'actualites'));
+      const actualitesList = querySnapshot.docs.map(doc => doc.data());
+      setActualites(actualitesList);  // Mettez à jour l'état avec les actualités récupérées
+    };
+
+    fetchActualites(); // Appel à la fonction pour récupérer les actualités
+  }, []);
+
   return (
     <Container>
       <TitleWrapper>
@@ -10,62 +25,26 @@ const Actualites = () => {
         <MainTitle>Nos Actualités</MainTitle>
       </TitleWrapper>
 
-      <Section>
-        <Title>
-          ✨ Nouvelle prestation de Luminothérapie LED : Offrez à votre peau un soin sur-mesure ! ✨
-        </Title>
-        <TextWrapper>
-          <Paragraph>
-            <OfferText>
-              <h3>Qu’est-ce que la Luminothérapie LED ?</h3>
-            </OfferText>
-          </Paragraph>
-          <Paragraph>
-            La Luminothérapie LED est une technologie avancée qui utilise différentes couleurs de lumière pour traiter
-            les imperfections de la peau, ralentir les signes du vieillissement et apporter un véritable éclat à votre
-            teint ✨. Découvrez les bienfaits des différentes couleurs de lumière :
-          </Paragraph>
-          <List>
-            <ListItem color="red">🔴 <Highlight>Lumière rouge</Highlight> : Anti-âge, stimule le collagène et améliore la fermeté de la peau.</ListItem>
-            <ListItem color="blue">🔵 <Highlight>Lumière bleue</Highlight> : Réduit les imperfections, l’acné et régule la production de sébum.</ListItem>
-            <ListItem color="green">🟢 <Highlight>Lumière verte</Highlight> : Uniformise le teint, atténue les taches pigmentaires et apaise les peaux sensibles.</ListItem>
-            <ListItem color="purple">🟣 <Highlight>Lumière violette</Highlight> : Répare et régénère la peau, améliore l’éclat et réduit les cicatrices.</ListItem>
-            <ListItem color="yellow">🟡 <Highlight>Lumière jaune</Highlight> : Apporte de l’hydratation, améliore le teint et apaise les rougeurs.</ListItem>
-            <ListItem color="cyan">🔷 <Highlight>Lumière cyan</Highlight> : Calme les inflammations, lutte contre les imperfections et améliore la texture de la peau.</ListItem>
-            <ListItem>🔴🔶 <Highlight>Lumière infrarouge</Highlight> : Favorise la régénération profonde de la peau, soulage les douleurs et stimule la circulation sanguine.</ListItem>
-          </List>
+      {actualites.map((actualite, index) => (
+        <Section key={index}>
+          <Title>{actualite.titre}</Title>
+          <TextWrapper>
+            {actualite.contenu.map((section, index) => (
+              <TextSection key={index}>
+                <OfferText>
+                  <h3>{section.sousTitre}</h3>
+                </OfferText>
+                <TextContent
+                  dangerouslySetInnerHTML={{ __html: section.texte.replace(/\n/g, '<br />') }}
+                />
+              </TextSection>
+            ))}
 
-          {/* Offre de lancement */}
-          <OfferText>
-            <h3>Offre de Lancement Exceptionnelle 🎉</h3>
-            <Paragraph>
-              Pour célébrer cette nouveauté, nous vous proposons une offre de lancement 100% gratuite exclusive :
-            </Paragraph>
-            <List>
-              <ListItem>Bilan personnalisé de luminothérapie 📝 : Nous analysons vos besoins spécifiques et vous proposons un traitement sur-mesure.</ListItem>
-              <ListItem>Séance découverte gratuite 💆‍♀️ : Profitez d’une première séance découverte pour découvrir les bienfaits immédiats de la luminothérapie LED.</ListItem>
-            </List>
-            <Paragraph>
-              Mais attention, cette offre est réservée uniquement aux 10 premières clientes ! 🚨 Ne manquez pas cette opportunité unique de chouchouter votre peau avec cette technologie innovante.
-            </Paragraph>
-
-            <h3>Comment en profiter ?</h3>
-            <Paragraph>
-              Pour réserver votre bilan personnalisé et séance découverte offerte, il vous suffit de réserver via le lien :{' '}
-              <Link href="https://www.planity.com/peau-dor-68320-jebsheim" target="_blank">
-                Réserver sur Planity
-              </Link>
-              {' '}ou de nous contacter au 📞 09 81 34 02 67. N’attendez plus, les places sont limitées !
-            </Paragraph>
-          </OfferText>
-
-        </TextWrapper>
-
-        {/* Image en dessous */}
-        <StyledImage src="/offres/actualites/luminotherapie.jpg" alt="Luminothérapie LED" />
-      </Section>
-
-
+            {/* Image en dessous */}
+            <StyledImage src={actualite.image} alt="Luminothérapie LED" />
+          </TextWrapper>
+        </Section>
+      ))}
     </Container>
   );
 };
@@ -87,7 +66,7 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  margin-bottom: 40px;
+  margin-bottom: 100px;
   max-width: 1200px;
 `;
 
@@ -112,33 +91,12 @@ const StyledImage = styled.img`
   }
 `;
 
-const Paragraph = styled.p`
+const TextSection = styled.div`
   margin-bottom: 20px;
 `;
 
-const List = styled.ul`
-  margin-left: 20px;
-  list-style-type: none;
-
-`;
-
-const ListItem = styled.li`
-  margin-bottom: 10px;
-  span{
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const Highlight = styled.span`
-  font-weight: bold;
-`;
-
-const Link = styled.a`
-  color: ${({ theme }) => theme.colors.primary};
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+const TextContent = styled.div`
+  margin-bottom: 20px;
 `;
 
 const OfferText = styled.div`

@@ -19,8 +19,10 @@ import CGV from "./components/pages/CGV.jsx";
 import LoginPage from "./components/pages/admin/LoginPage.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import NosExpertesAdmin from "./components/pages/admin/NosExpertesAdmin.jsx";
-import NotreCentreAdmin from "./components/admin/NotreCentreAdmin.jsx";
+import NotreCentreAdmin from "./components/pages/admin/NotreCentreAdmin.jsx";
 import SoinsAdmin from "./components/pages/admin/Soins/SoinsAdmin.jsx";
+import ActualitesAdmin from "./components/pages/admin/ActualitesAdmin.jsx";
+import OffresDuMomentAdmin from "./components/pages/admin/OffresDuMomentAdmin.jsx";
 
 const pageVariants = {
   initial: { opacity: 0, x: "100%" },
@@ -215,7 +217,7 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <Actualites />
+                {user ? <ActualitesAdmin /> : <Actualites />}
               </motion.div>
             }
           />
@@ -229,7 +231,7 @@ const App = () => {
                 variants={pageVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <OffresDuMoment />
+                {user ? <OffresDuMomentAdmin /> : <OffresDuMoment />}
               </motion.div>
             }
           />

@@ -1,41 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../../api/firebase-config'
 
 const OffresDuMoment = () => {
-    return (
-        <Container>
-            <TitleWrapper>
-                <MainTitle>Nos Offres</MainTitle>
-            </TitleWrapper>
+  const [offres, setOffres] = useState([]);
 
-            <Section>
-                <Title>💌 Offre spéciale Saint-Valentin 💌</Title>
-                <TextWrapper>
-                    <List>
-                        <ListItem>-10% sur les chèques cadeaux**</ListItem>
-                        <ListItem>-20% sur les massages duo**</ListItem>
-                        <ListItem>
-                            Massage harmonie duo 30 min 72€ au lieu de 90€**
-                        </ListItem>
-                        <ListItem>
-                            Massage harmonie suprême duo 45 min 88€ au lieu de 110€**
-                        </ListItem>
-                        <ListItem>
-                            -20% sur les blanchiments dentaires en duo 120€ les deux séances au lieu de 150€**
-                        </ListItem>
-                    </List>
-                    <Paragraph>
-                        <Highlight>*Offre valable du 01/02/2025 au 28/02/2025</Highlight>
-                    </Paragraph>
-                    <Paragraph>
-                        <Highlight>**Offre non cumulable avec d’autres promotions en cours</Highlight>
-                    </Paragraph>
-                </TextWrapper>
-                <StyledImage src="/offres/actualites/saint_valentin.png" alt="Luminothérapie LED" />
-            </Section>
+  useEffect(() => {
+    // Fonction pour récupérer les offres depuis Firestore
+    const fetchOffres = async () => {
+      const querySnapshot = await getDocs(collection(db, 'offresDuMoment'));
+      const offresList = querySnapshot.docs.map(doc => doc.data());
+      setOffres(offresList);  // Mettez à jour l'état avec les offres récupérées
+    };
 
-        </Container>
-    );
+    fetchOffres(); // Appel à la fonction pour récupérer les offres
+  }, []);
+
+  return (
+    <Container>
+      <TitleWrapper>
+        <MainTitle>Nos Offres</MainTitle>
+      </TitleWrapper>
+
+      {offres.map((offre, index) => (
+        <Section key={index}>
+          <Title>{offre.titre}</Title>
+          <TextWrapper>
+            <List>
+              {offre.contenu.map((item, idx) => (
+                <ListItem key={idx}>{item}</ListItem>
+              ))}
+            </List>
+            <Paragraph>
+              <Highlight>*Offre valable du 01/02/2025 au 28/02/2025</Highlight>
+            </Paragraph>
+            <Paragraph>
+              <Highlight>**Offre non cumulable avec d’autres promotions en cours</Highlight>
+            </Paragraph>
+          </TextWrapper>
+          <StyledImage src={offre.image} alt="Luminothérapie LED" />
+        </Section>
+      ))}
+    </Container>
+  );
 };
 
 export default OffresDuMoment;
@@ -87,7 +95,6 @@ const Paragraph = styled.p`
 const List = styled.ul`
   margin-left: 20px;
   list-style-type: none;
-
 `;
 
 const ListItem = styled.li`
@@ -101,8 +108,6 @@ const Highlight = styled.span`
   font-weight: bold;
 `;
 
-
-
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -110,7 +115,6 @@ const TitleWrapper = styled.div`
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.secondary};
 `;
-
 
 const MainTitle = styled.h1`
   font-size: 2.5rem;
@@ -124,4 +128,3 @@ const MainTitle = styled.h1`
     font-size: 1rem;
   }
 `;
-

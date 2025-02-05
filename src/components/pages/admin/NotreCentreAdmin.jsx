@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../api/firebase-config";
+import { db } from "../../../api/firebase-config";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { FaPhoneAlt } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
-import "../pages/notreCentre/NotreCentrePage.css"; // Ton CSS d'origine
+import "../../pages/notreCentre/NotreCentrePage.css";
 
 const NotreCentreAdmin = () => {
     const [centreData, setCentreData] = useState(null);
