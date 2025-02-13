@@ -7,6 +7,7 @@ import "./NotreCentrePage.css";
 
 const NotreCentrePage = () => {
   const [centreData, setCentreData] = useState(null);
+  const joursOrdres = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
 
   useEffect(() => {
     const fetchCentreData = async () => {
@@ -47,9 +48,9 @@ const NotreCentrePage = () => {
       <section className="opening-hours">
         <h2>Horaires d'ouverture</h2>
         <ul>
-          {Object.entries(centreData.horaires).map(([jour, heures], index) => (
+          {joursOrdres.map((jour, index) => (
             <li key={index}>
-              <span>{jour.charAt(0).toUpperCase() + jour.slice(1)}:</span> {heures}
+              <span>{jour.charAt(0).toUpperCase() + jour.slice(1)}:</span> {centreData.horaires[jour] || "Fermé"}
             </li>
           ))}
         </ul>

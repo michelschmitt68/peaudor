@@ -9,6 +9,7 @@ const NotreCentreAdmin = () => {
     const [centreData, setCentreData] = useState(null);
     const [editing, setEditing] = useState(false);
     const [formData, setFormData] = useState(null);
+    const joursOrdres = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
 
     useEffect(() => {
         const fetchCentreData = async () => {
@@ -93,18 +94,23 @@ const NotreCentreAdmin = () => {
             <section className="opening-hours">
                 <h2>Horaires d'ouverture</h2>
                 <ul>
-                    {Object.entries(formData.horaires).map(([jour, heures], index) => (
+                    {joursOrdres.map((jour, index) => (
                         <li key={index}>
                             <span>{jour.charAt(0).toUpperCase() + jour.slice(1)}:</span>
                             {editing ? (
-                                <input type="text" value={heures} onChange={(e) => handleChange(e, "horaires", jour)} />
+                                <input
+                                    type="text"
+                                    value={formData?.horaires?.[jour] || ""}
+                                    onChange={(e) => handleChange(e, "horaires", jour)}
+                                />
                             ) : (
-                                heures
+                                centreData?.horaires?.[jour] || "Fermé"
                             )}
                         </li>
                     ))}
                 </ul>
             </section>
+
 
             <section className="location">
                 <h2>Nous retrouver</h2>
