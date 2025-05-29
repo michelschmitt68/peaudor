@@ -7,7 +7,6 @@ const NosExpertes = () => {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-
     const fetchTeamData = async () => {
       const teamData = await getTeam();
       if (teamData && teamData.members) {

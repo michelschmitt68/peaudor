@@ -4,8 +4,7 @@ import styled from "styled-components";
 const TeamSection = () => {
   const teamMembers = [
     { name: "Noémie", role: "Experte amincissement & regard", image: "/team/member1.jpeg" },
-    { name: "Elsa", role: "Esthéticienne polyvalente", image: "/team/member2.jpeg" },
-    { name: "Maité", role: "Experte sourcils", image: "/team/member3.jpeg" },
+    { name: "Maité", role: "Experte sourcils", image: "/team/member2.jpeg" },
   ];
 
   return (
